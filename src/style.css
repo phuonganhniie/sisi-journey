@@ -5,7 +5,8 @@ html {
 }
 
 .purple {
-    color: var(--imp-text-color) !important;
+    /* color: var(--imp-text-color) !important; */
+    background: linear-gradient(to right, #DA22FF, #9733EE);
 }
 
 button:focus {
@@ -277,6 +278,13 @@ button:focus {
     height: 100%;
 }
 
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
 .home-header {
     padding-top: 80px !important;
 }
@@ -284,17 +292,21 @@ button:focus {
 .home-section {
     position: relative;
     z-index: -1;
-    background-image: var(--image-gradient), url(./Assets/home-bg.jpg);
+    /* background-image: var(--image-gradient), url(./Assets/home-bg.jpg); */
     background-position: top center;
     background-repeat: no-repeat;
-    padding-bottom: 30px !important;
+    /* padding-bottom: 30px !important; */
     padding-top: 30px !important;
 }
 
 .home-content {
-    padding: 9rem 0 2rem !important;
+    padding: 10rem 0 2rem !important;
     color: whitesmoke;
     text-align: left;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 
 .heading {
@@ -313,11 +325,14 @@ button:focus {
 }
 
 .main-name {
-    color: #cd5ff8;
+    background: linear-gradient(to right, #DA22FF, #f7971e, #00c9ff, #2afadf);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .sub-name {
-    color: #d9a0f0;
+    /* color: #d9a0f0; */
+    background: linear-gradient(to right, #DA22FF, #9733EE);
 }
 
 .Typewriter__wrapper {
@@ -358,6 +373,7 @@ button:focus {
 
 .home-about-section {
     position: relative;
+    padding-left: 100px !important;
     padding-bottom: 70px !important;
     padding-top: 70px !important;
 }
@@ -371,7 +387,7 @@ button:focus {
 
 .home-about-body {
     padding-top: 50px;
-    padding-left: 3em;
+    padding-left: 4em;
     font-size: 1em !important;
     text-align: left;
 }

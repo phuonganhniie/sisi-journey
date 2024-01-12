@@ -14,8 +14,8 @@ function Home() {
   return (
     <section>
       <Container fluid className="home-section" id="home">
-        <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas"></canvas>
         <Particle />
+        <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas"></canvas>
         <Container className="home-content">
           <Row>
             <Col md={7} className="home-header">

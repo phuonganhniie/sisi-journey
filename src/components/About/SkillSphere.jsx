@@ -3,10 +3,10 @@ import { TextureLoader, Vector3, MeshStandardMaterial, PlaneGeometry, MeshBasicM
 import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 
 const Earth = () => {
-  const texture = useLoader(TextureLoader, 'src/Assets/earth_texture.jpg');
+  const texture = useLoader(TextureLoader, 'src/Assets/earth_texture_2.jpg');
   return (
     <mesh>
-      <sphereGeometry args={[1, 256, 256]} />
+      <sphereGeometry args={[1.1, 256, 256]} />
       <meshStandardMaterial map={texture} />
     </mesh>
   );

@@ -18,34 +18,27 @@ function Home2() {
             </Tilt>
           </Col>
           <Col md={7} className="home-about-description">
-            <h1 style={{ fontSize: "2.2em" }}>
-              THANK YOU FOR HEARING ME <span className="purple"> INTRODUCE </span> MYSELF
+            <h1 style={{ fontSize: "35px" }}>
+              THANK YOU FOR <span className="purple"> APPEARING </span> HERE
             </h1>
             <p className="home-about-body">
-              My name is <b className="purple">Phương Anh</b> /fɨəŋ ʔajŋ/, but if you're not sure how to pronounce it, you can call me <b className="purple"> Minerva </b> - which is my English name. I'm a developer who <b className="purple">loves</b> to code and works on both Back-End and Front-End, but I definitely lean more towards Back-End. Sometimes, I also dabble in systems because, at the end of the day, I just the normal person who loves <b className="purple">technology, researching, exploring, and learning.</b>
+              My name is <b className="purple">Phương Anh</b>, but if you're not sure how to pronounce it, you can call me <b className="purple"> Minerva </b> - which is my English name. I'm a developer who <b className="purple">loves</b> to code and works on both Back-End and Front-End, but I definitely lean more towards Back-End. Sometimes, I also dabble in systems because, at the end of the day, I just the normal person who loves <b className="purple">technology, researching, exploring, and learning.</b>
               <br />
               <br />I work regularly with
               <i>
-                <b className="purple"> Golang, NodeJS, </b> and more recently, <b className="purple"> ReactJS. </b>
+                <b className="purple"> Golang, NodeJS, Python </b> and more recently, <b className="purple"> ReactJS. </b>
               </i>
               <br />
               <br />
-              I still really enjoy working with &nbsp;
+              I also really enjoy exploring about &nbsp;
               <i>
-                <b className="purple">infrastructure, networks, and cyber security, </b> so I actively seek out opportunities to collaborate with DevSecOps teams
-                both within my company and in the community.{" "}
+                <b className="purple">infrastructure, networks, and security, </b> so I actively seek out opportunities to collaborate with DevSecOps teams
+                both within my work environment or in the community.{" "}
               </i>
               <br />
               <br />
-              Because after all, my greatest aspiration is
-              <i><b className="purple"> together with technology</b></i>  to
-              <i>
-                <b className="purple">
-                  {" "}
-                  develop the world
-                </b>
-              </i>
-              &nbsp; in
+              Because after all, my greatest aspiration is together with technology to develop the world in
+              &nbsp; 
               <b className="purple"> a civilized and beautiful way.</b>
             </p>
           </Col>

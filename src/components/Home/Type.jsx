@@ -1,19 +1,29 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
+import './Type.css';
 
 function Type() {
   return (
     <Typewriter
+      onInit={(typewriter) => {
+        typewriter
+          .typeString('<span class="gradient-1">Always like a "Fresh" Developer</span>')
+          .pauseFor(70)
+          .deleteAll()
+          .typeString('<span class="gradient-2">Curious person about life, world and universe</span>')
+          .pauseFor(70)
+          .deleteAll()
+          .typeString('<span class="gradient-3">A passionate Learner about everything</span>')
+          .pauseFor(70)
+          .deleteAll()
+          .typeString('<span class="gradient-4">And I\'m</span> 🙆‍♀️')
+          .pauseFor(70)
+          .start();
+      }}
       options={{
-        strings: [
-          "Always like a Fresh Developer",
-          "Curious Person about life, world, universe and everything",
-          "A passionate Writer and Learner about technology",
-          "And I'm...",
-        ],
         autoStart: true,
         loop: true,
-        delay: 40,
+        delay: 70,
         deleteSpeed: 35,
       }}
     />

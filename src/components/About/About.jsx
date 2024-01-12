@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import SkillsScene from "./SkillSphere";
 import Aboutcard from "./AboutCard"
+import "./About.css";
 
 function About() {
   return (
@@ -18,13 +19,13 @@ function About() {
             }}
           >
             <h1 style={{ fontFamily: "Alegreya Sans SC", fontSize: "4em", paddingBottom: "20px" }}>
-              <strong className="purple">WELCOME TO SISI'S JOURNEY</strong>
+              <strong className="main-about">WELCOME TO SISI'S JOURNEY</strong>
             </h1>
             <Aboutcard />
           </Col>
         </Row>
         <h1 className="project-heading">
-          My <strong className="purple">Skillset </strong>
+          <strong className="purple">Stacks</strong>
         </h1>
         
         <div style={{width: '100%', height: '80vh', position: 'relative'}}>
