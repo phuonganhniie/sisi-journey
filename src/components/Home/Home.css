@@ -1,9 +1,3 @@
-.main-about {
-    background: linear-gradient(to right, #DA22FF, #f7971e, #00c9ff, #2afadf);
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
 .fade-in-section {
     opacity: 0;
     transform: translateY(20px);

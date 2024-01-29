@@ -30,7 +30,7 @@ const SkillSphere = ({ image, position }) => {
 
 const SkillImage = ({ image, position }) => {
   const texture = useLoader(TextureLoader, image);
-  const geometry = new PlaneGeometry(0.65, 0.65);
+  const geometry = new PlaneGeometry(0.45, 0.45);
   const material = new MeshBasicMaterial({ map: texture, side: DoubleSide, transparent: true });
 
   return <mesh position={position} geometry={geometry} material={material} />;
@@ -43,7 +43,7 @@ const Camera = () => {
   React.useEffect(() => {
     camera.fov = 50;
     camera.aspect = aspect;
-    camera.near = 0.1;
+    camera.near = 0.5;
     camera.far = 100;
     camera.position.z = 6;
     camera.updateProjectionMatrix();
@@ -59,10 +59,11 @@ const SkillsScene = () => {
     { skill: 'Mysql', image: 'src/Assets/skills/mysql.png' },
     { skill: 'Mongodb', image: 'src/Assets/skills/mongo.png' },
     { skill: 'Redis', image: 'src/Assets/skills/redis.png' },
-    { skill: 'Kafka', image: 'src/Assets/skills/kafka.png' },
+    { skill: 'Kafka', image: 'src/Assets/skills/kafka_white.png' },
     { skill: 'RabbitMQ', image: 'src/Assets/skills/rabbitmq.png' },
     { skill: 'AWS', image: 'src/Assets/skills/aws.png' },
-    { skill: 'ReactJS', image: 'src/Assets/skills/reactjs.svg' },
+    { skill: 'ReactJS', image: 'src/Assets/skills/reactjs.png' },
+    { skill: 'Python', image: 'src/Assets/skills/python.png' },
   ];
 
   return (

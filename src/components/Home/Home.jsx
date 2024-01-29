@@ -1,14 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import homeLogo from "../../Assets/home-main-2.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
 import { renderCanvas } from "../renderCanvas";
+import './Home.css';
 
 function Home() {
+  const [showHome2, setShowHome2] = useState(false)
+
+  const checkScroll = () => {
+    const home2Pos = document.getElementById('home2').getBoundingClientRect().top;
+    const screenPos = window.innerHeight / 1.3;
+
+    if (home2Pos < screenPos) {
+      setShowHome2(true);
+    }
+  }
+
   useEffect(() => {
+    window.addEventListener("scroll", checkScroll);
     renderCanvas();
+
+    return () => {
+      window.removeEventListener("scroll", checkScroll);
+    }
   }, []);
 
   return (
@@ -52,7 +69,9 @@ function Home() {
           </Row>
         </Container>
       </Container>
-      <Home2 />
+      <div id="home2" className={`fade-in-section ${showHome2 ? 'visible' : ''}`}>
+        <Home2 />
+      </div>
     </section>
   );
 }
