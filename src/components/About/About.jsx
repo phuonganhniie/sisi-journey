@@ -70,9 +70,8 @@ function About() {
           </Col>
         </Row>
         <h1 className="project-heading">
-          <strong className="purple">Stacks</strong>
+          <strong className="purple">Stacks & Tools</strong>
         </h1>
-
         <div
           id="skill-scene"
           style={{ width: "100%", height: "80vh", position: "relative" }}

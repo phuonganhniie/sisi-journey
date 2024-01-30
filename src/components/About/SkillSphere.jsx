@@ -31,7 +31,7 @@ const SkillSphere = ({ image, position }) => {
 const SkillImage = ({ image, position }) => {
   const texture = useLoader(TextureLoader, image);
   const geometry = new PlaneGeometry(0.45, 0.45);
-  const material = new MeshBasicMaterial({ map: texture, side: DoubleSide, transparent: true });
+  const material = new MeshBasicMaterial({ map: texture, side: 2, transparent: true });
 
   return <mesh position={position} geometry={geometry} material={material} />;
 };
@@ -54,16 +54,22 @@ const Camera = () => {
 
 const SkillsScene = () => {
   const skills = [
+    // Stacks
     { skill: 'Golang', image: 'src/Assets/skills/golang.png' },
     { skill: 'Nodejs', image: 'src/Assets/skills/nodejs.png' },
     { skill: 'Mysql', image: 'src/Assets/skills/mysql.png' },
+    { skill: 'Postgres', image: 'src/Assets/skills/postgres.png' },
     { skill: 'Mongodb', image: 'src/Assets/skills/mongo.png' },
     { skill: 'Redis', image: 'src/Assets/skills/redis.png' },
     { skill: 'Kafka', image: 'src/Assets/skills/kafka_white.png' },
     { skill: 'RabbitMQ', image: 'src/Assets/skills/rabbitmq.png' },
     { skill: 'AWS', image: 'src/Assets/skills/aws.png' },
     { skill: 'ReactJS', image: 'src/Assets/skills/reactjs.png' },
-    { skill: 'Python', image: 'src/Assets/skills/python.png' },
+
+    // Tools
+    { skill: 'VSCode', image: 'src/Assets/skills/vscode.png' },
+    { skill: 'Git', image: 'src/Assets/skills/git.png' },
+    { skill: 'Docker', image: 'src/Assets/skills/docker.png' },
   ];
 
   return (

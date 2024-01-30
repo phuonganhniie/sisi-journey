@@ -26,14 +26,14 @@ function Home2() {
               <br />
               <br />I work regularly with
               <i>
-                <b className="purple"> Golang, NodeJS, Python </b> and more recently, <b className="purple"> ReactJS. </b>
+                <b className="purple"> Golang, NodeJS </b> and more recently, <b className="purple"> ReactJS. </b>
               </i>
               <br />
               <br />
               I also really enjoy exploring about &nbsp;
               <i>
-                <b className="purple">infrastructure, networks, and security, </b> so I actively seek out opportunities to collaborate with DevSecOps teams
-                both within my work environment or in the community.{" "}
+                <b className="purple">infrastructure, networks, and security, </b> (but still a fresher) so I actively seek out opportunities to collaborate with DevSecOps teams
+                both within my work environment and in the community.
               </i>
               <br />
               <br />
