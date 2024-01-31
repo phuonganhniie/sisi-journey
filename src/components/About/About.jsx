@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import SkillsScene from "./SkillSphere";
 import AboutCard from "./AboutCard";
 import "./About.css";
+import LanguagesChart from "./DoughnutChart";
+import TotalTimeCard from "./TotalTimeCard";
 
 function About() {
   const location = useLocation();
   const [showAboutCard, setShowAboutCard] = useState(false);
   const [showSkillScene, setShowSkillScene] = useState(false);
+  const [showCodingStats, setshowCodingStats] = useState(false);
+
+  const [languages, setLanguages] = useState([]);
+  const [totalTime, setTotalTime] = useState("0h");
 
   const checkScroll = () => {
     const aboutCardPos = document
@@ -17,6 +23,9 @@ function About() {
       .getBoundingClientRect().top;
     const skillScenePos = document
       .getElementById("skill-scene")
+      .getBoundingClientRect().top;
+    const codingStatsPos = document
+      .getElementById("coding-stats")
       .getBoundingClientRect().top;
     const screenPos = window.innerHeight / 1.3;
 
@@ -26,10 +35,30 @@ function About() {
     if (skillScenePos < screenPos) {
       setShowSkillScene(true);
     }
+    if (codingStatsPos < screenPos) {
+      setshowCodingStats(true);
+    }
   };
 
   useEffect(() => {
-    if (location.pathname === '/about') {
+    fetch("./src/data/wakatime.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setLanguages(data.data.languages);
+        setTotalTime(`${(data.data.total_seconds / 3600).toFixed(2)}h`);
+      })
+      .catch((error) => {
+        console.error("There was a problem fetching the data:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (location.pathname === "/about") {
       setShowAboutCard(true);
     }
 
@@ -69,15 +98,40 @@ function About() {
             </div>
           </Col>
         </Row>
-        <h1 className="project-heading">
+        <h1 className="stacks-heading">
           <strong className="purple">Stacks & Tools</strong>
         </h1>
         <div
           id="skill-scene"
-          style={{ width: "100%", height: "80vh", position: "relative" }}
+          style={{
+            width: "100%",
+            height: "80vh",
+            position: "relative",
+            paddingBottom: "100px",
+          }}
           className={`fade-in-section ${showSkillScene ? "visible" : ""}`}
         >
           <SkillsScene />
+        </div>
+
+        <h1 className="coding-stats-heading">
+          <strong className="purple">My Coding Stats</strong>
+        </h1>
+        <div
+          id="coding-stats"
+          className={`fade-in-section ${showCodingStats ? "visible" : ""}`}
+        >
+          <Row className="coding-stats-section">
+            {languages.length > 0 && (
+              <Col md={6} className="coding-chart">
+                <LanguagesChart languages={languages} />
+              </Col>
+            )}
+
+            <Col md={6} className="coding-time">
+              <TotalTimeCard totalTime={totalTime} />
+            </Col>
+          </Row>
         </div>
       </Container>
     </Container>

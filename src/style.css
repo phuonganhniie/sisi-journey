@@ -604,13 +604,12 @@ button:focus {
     box-shadow: none !important;
 }
 
-.project-heading {
+.project-heading, .stacks-heading, .coding-stats-heading {
     color: white !important;
     font-size: 2.3em !important;
     font-weight: 500 !important;
     padding-top: 10px !important;
 }
-
 
 /* --------- */
 

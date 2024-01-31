@@ -31,7 +31,7 @@ const SkillSphere = ({ image, position }) => {
 const SkillImage = ({ image, position }) => {
   const texture = useLoader(TextureLoader, image);
   const geometry = new PlaneGeometry(0.45, 0.45);
-  const material = new MeshBasicMaterial({ map: texture, side: 2, transparent: true });
+  const material = new MeshBasicMaterial({ map: texture, side: DoubleSide, transparent: true });
 
   return <mesh position={position} geometry={geometry} material={material} />;
 };
