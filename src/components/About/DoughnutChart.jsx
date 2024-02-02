@@ -37,7 +37,7 @@ const LanguagesChart = ({ languages }) => {
         labels: {
           boxWidth: 20,
           font: {
-            size: 14,
+            size: 12,
           },
           padding: 20,
         },

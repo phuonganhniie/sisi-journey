@@ -12,7 +12,7 @@ function About() {
   const location = useLocation();
   const [showAboutCard, setShowAboutCard] = useState(false);
   const [showSkillScene, setShowSkillScene] = useState(false);
-  const [showCodingStats, setshowCodingStats] = useState(false);
+  const [showCodingStats, setShowCodingStats] = useState(false);
 
   const [languages, setLanguages] = useState([]);
   const [totalTime, setTotalTime] = useState("0h");
@@ -36,7 +36,7 @@ function About() {
       setShowSkillScene(true);
     }
     if (codingStatsPos < screenPos) {
-      setshowCodingStats(true);
+      setShowCodingStats(true);
     }
   };
 
