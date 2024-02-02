@@ -1,0 +1,53 @@
+:root {
+    --radius: 12px;
+    --size: 150px;
+    --border: 2px;
+    --cardblur: 4px;
+    --backdrop-opacity: 0.3;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.card {
+    aspect-ratio: 3 / 4;
+    border-radius: var(--radius);
+    width: 260px;
+    position: relative;
+    box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    backdrop-filter: blur(var(--cardblur));
+    background: rgba(0, 0, 0, var(--backdrop-opacity));
+    color: white;
+}
+
+[data-glow] {
+    --spotlight-size: var(--size);
+    --border-size: var(--border);
+    background-image: radial-gradient(
+        var(--spotlight-size) at var(--x) var(--y),
+        hsl(210 100% 70% / 0.3), transparent
+    );
+    position: relative;
+}
+
+[data-glow]::before,
+[data-glow]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-size) solid transparent;
+    border-radius: var(--radius);
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+}
+
+[data-glow]::before {
+    background-image: radial-gradient(
+        calc(var(--spotlight-size) * 0.5) at var(--x) var(--y),
+        hsl(0 100% 100% / 1), transparent 100%
+    );
+}

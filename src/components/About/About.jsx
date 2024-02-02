@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import SkillsScene from "./SkillSphere";
 import AboutCard from "./AboutCard";
-import "./About.css";
+import "./About.module.css";
 import LanguagesChart from "./DoughnutChart";
 import TotalTimeCard from "./TotalTimeCard";
 
@@ -129,7 +129,17 @@ function About() {
             )}
 
             <Col md={6} className="coding-time">
-              <TotalTimeCard totalTime={totalTime} />
+              <Row>
+                {/* Top half for TotalTimeCard */}
+                <Col md={12} className="coding-time">
+                  <TotalTimeCard totalTime={totalTime} />
+                </Col>
+
+                {/* Bottom half for LeetCodeStat */}
+                <Col md={12} className="leetcode-stat">
+                  {/* <LeetCodeStat /> */}abc
+                </Col>
+              </Row>
             </Col>
           </Row>
         </div>
