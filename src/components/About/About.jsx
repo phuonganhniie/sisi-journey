@@ -4,9 +4,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import SkillsScene from "./SkillSphere";
 import AboutCard from "./AboutCard";
-import "./About.module.css";
+import "./About.css";
 import LanguagesChart from "./DoughnutChart";
 import TotalTimeCard from "./TotalTimeCard";
+import useWakaTimeData from "../../api/wakatime/wakatime";
 
 function About() {
   const location = useLocation();
@@ -14,8 +15,7 @@ function About() {
   const [showSkillScene, setShowSkillScene] = useState(false);
   const [showCodingStats, setShowCodingStats] = useState(false);
 
-  const [languages, setLanguages] = useState([]);
-  const [totalTime, setTotalTime] = useState("0h");
+  const { languages, totalTime } = useWakaTimeData();
 
   const checkScroll = () => {
     const aboutCardPos = document
@@ -39,23 +39,6 @@ function About() {
       setShowCodingStats(true);
     }
   };
-
-  useEffect(() => {
-    fetch("./src/data/wakatime.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setLanguages(data.data.languages);
-        setTotalTime(`${(data.data.total_seconds / 3600).toFixed(2)}h`);
-      })
-      .catch((error) => {
-        console.error("There was a problem fetching the data:", error);
-      });
-  }, []);
 
   useEffect(() => {
     if (location.pathname === "/about") {

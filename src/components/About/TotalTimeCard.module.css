@@ -1,53 +1,170 @@
 :root {
-    --radius: 12px;
-    --size: 150px;
-    --border: 2px;
-    --cardblur: 4px;
-    --backdrop-opacity: 0.3;
+  --accent: 14 14 16;
+  --border: 32 32 32;
+
+  /* Card glow effect */
+  --backdrop: rgb(var(--accent));
+  --radius: 30px;
+  --border: 2px;
+  --backup-border: rgb(var(--backdrop));
+  --size: 130;
+  --cardblur: 4px;
+  --backdrop-opacity: 0.2;
 }
 
 .wrapper {
-    position: relative;
+  position: relative;
+  background: rgba(0, 0, 0, 0);
 }
 
 .card {
-    aspect-ratio: 3 / 4;
-    border-radius: var(--radius);
-    width: 260px;
-    position: relative;
-    box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.5);
-    padding: 1rem;
-    display: grid;
-    gap: 1rem;
-    backdrop-filter: blur(var(--cardblur));
-    background: rgba(0, 0, 0, var(--backdrop-opacity));
-    color: white;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  width: 460px;
+  height: 120px;
+  position: relative;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  background: rgba(0, 0, 0, var(--backdrop-opacity));
+  color: white;
+  /* backdrop-filter: blur(var(--cardblur)); */
+  /* box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.5); */
 }
 
+.card__content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.card__content h2, .card__content .counter {
+  font-size: 25px; 
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(left, #FF1493, #9400D3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0; 
+}
+
+.card__content .counter {
+  font-size: 25px;
+}
+
+/* Define the rainbow animation */
+@keyframes rainbow {
+  0% { --hue: 0; }
+  100% { --hue: 360; }
+}
+
+/* Card glow effect */
 [data-glow] {
-    --spotlight-size: var(--size);
-    --border-size: var(--border);
-    background-image: radial-gradient(
-        var(--spotlight-size) at var(--x) var(--y),
-        hsl(210 100% 70% / 0.3), transparent
-    );
-    position: relative;
+  --spotlight-size: var(--size);
+  --border-size: var(--border);
+  animation: rainbow 5s linear infinite;
+  background-image: radial-gradient(
+    var(--spotlight-size) at var(--x) var(--y),
+    hsla(var(--hue, 0), 100%, 50%, 0.3),
+    transparent
+  );
+  position: relative;
 }
 
-[data-glow]::before,
-[data-glow]::after {
+/* Enable only for hoverable devices */
+@media (hover: hover) {
+  [data-glow] {
+    --border-size: 2px;
+    --spotlight-size: calc(var(--size, 150) * 1px);
+    --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+    background-image: radial-gradient(
+      var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+      hsl(
+        var(--hue, 210) calc(var(--saturation, 100) * 1%)
+          calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)
+      ),
+      transparent
+    );
+    background-size: calc(100% + (2 * var(--border-size)))
+      calc(100% + (2 * var(--border-size)));
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    border: var(--border-size) solid var(--backup-border);
+    position: relative;
+    touch-action: none;
+  }
+
+  [data-glow]::before,
+  [data-glow]::after {
+    pointer-events: none;
     content: "";
     position: absolute;
-    inset: 0;
+    inset: calc(var(--border-size) * -1);
     border: var(--border-size) solid transparent;
     border-radius: var(--radius);
-    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-size: calc(100% + (2 * var(--border-size)))
+      calc(100% + (2 * var(--border-size)));
+    background-repeat: no-repeat;
     background-position: 50% 50%;
-}
+    mask: linear-gradient(transparent, transparent),
+      linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+  }
 
-[data-glow]::before {
+  [data-glow]::before {
     background-image: radial-gradient(
-        calc(var(--spotlight-size) * 0.5) at var(--x) var(--y),
-        hsl(0 100% 100% / 1), transparent 100%
+      calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
+        calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+      hsl(
+        var(--hue, 210) calc(var(--saturation, 100) * 1%)
+          calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)
+      ),
+      transparent 100%
     );
+    filter: brightness(2);
+  }
+
+  [data-glow]::after {
+    background-image: radial-gradient(
+      calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
+        calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+      hsl(0 100% 100% / var(--border-light-opacity, 1)),
+      transparent 100%
+    );
+  }
+
+  [data-glow] > [data-glow] {
+    border-radius: var(--radius);
+    border-width: calc(var(--border-size) * 20);
+    filter: blur(calc(var(--border-size) * 10));
+    background: none;
+    pointer-events: none;
+    border: none;
+    position: absolute;
+    inset: 0;
+    will-change: filter;
+    opacity: 1;
+  }
+
+  [data-glow] > [data-glow]::before {
+    inset: -10px;
+    border-width: 10px;
+  }
+
+  [data-glow] :is(a, button) {
+    border-radius: var(--radius);
+    border: var(--border-size) solid transparent;
+  }
+
+  [data-glow] :is(a, button) [data-glow] {
+    background: none;
+  }
+
+  [data-glow] :is(a, button) [data-glow]::before {
+    inset: calc(var(--border-size) * -1);
+    border-width: calc(var(--border-size) * 1);
+  }
 }

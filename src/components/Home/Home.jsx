@@ -5,7 +5,7 @@ import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
 import { renderCanvas } from "../renderCanvas";
-import './Home.module.css';
+import './Home.css';
 
 function Home() {
   const [showHome2, setShowHome2] = useState(false)
