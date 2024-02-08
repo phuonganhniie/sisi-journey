@@ -5,19 +5,21 @@ import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
 import { renderCanvas } from "../renderCanvas";
-import './Home.css';
+import "./Home.css";
 
 function Home() {
-  const [showHome2, setShowHome2] = useState(false)
+  const [showHome2, setShowHome2] = useState(false);
 
   const checkScroll = () => {
-    const home2Pos = document.getElementById('home2').getBoundingClientRect().top;
+    const home2Pos = document
+      .getElementById("home2")
+      .getBoundingClientRect().top;
     const screenPos = window.innerHeight / 1.3;
 
     if (home2Pos < screenPos) {
       setShowHome2(true);
     }
-  }
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", checkScroll);
@@ -25,14 +27,17 @@ function Home() {
 
     return () => {
       window.removeEventListener("scroll", checkScroll);
-    }
+    };
   }, []);
 
   return (
     <section>
       <Container fluid className="home-section" id="home">
         <Particle />
-        <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas"></canvas>
+        <canvas
+          className="bg-skin-base pointer-events-none absolute inset-0"
+          id="canvas"
+        ></canvas>
         <Container className="home-content">
           <Row>
             <Col md={7} className="home-header">
@@ -45,7 +50,7 @@ function Home() {
 
               <h1 className="heading-name">
                 I'M
-                <strong className="main-name">  ĐỖ  PHƯƠNG  ANH</strong>
+                <strong className="main-name"> ĐỖ PHƯƠNG ANH</strong>
               </h1>
 
               <h2 className="heading-name-sub">
@@ -58,7 +63,7 @@ function Home() {
               </div>
             </Col>
 
-            <Col md={5} style={{ paddingBottom: 20, paddingTop: 30}}>
+            <Col md={5} style={{ paddingBottom: 20, paddingTop: 30 }}>
               <img
                 src={homeLogo}
                 alt="home pic"
@@ -69,7 +74,10 @@ function Home() {
           </Row>
         </Container>
       </Container>
-      <div id="home2" className={`fade-in-section ${showHome2 ? 'visible' : ''}`}>
+      <div
+        id="home2"
+        className={`fade-in-section ${showHome2 ? "visible" : ""}`}
+      >
         <Home2 />
       </div>
     </section>

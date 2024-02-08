@@ -1,55 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import useWakaTimeLanguages from "../../api/wakatime/useWakatimeLanguages";
 import Particle from "../Particle";
-import SkillsScene from "./SkillSphere";
-import AboutCard from "./AboutCard";
 import "./About.css";
-import LanguagesChart from "./DoughnutChart";
+import AboutCard from "./AboutCard";
+import LanguagesChart from "./LanguagesChart";
+import SkillsScene from "./SkillSphere";
 import TotalTimeCard from "./TotalTimeCard";
-import useWakaTimeData from "../../api/wakatime/wakatime";
 
 function About() {
   const location = useLocation();
+  const languages = useWakaTimeLanguages();
+
   const [showAboutCard, setShowAboutCard] = useState(false);
   const [showSkillScene, setShowSkillScene] = useState(false);
   const [showCodingStats, setShowCodingStats] = useState(false);
 
-  const { languages, totalTime } = useWakaTimeData();
-
-  const checkScroll = () => {
+  const checkScroll = useCallback(() => {
     const aboutCardPos = document
       .getElementById("about-card")
       .getBoundingClientRect().top;
+
     const skillScenePos = document
       .getElementById("skill-scene")
       .getBoundingClientRect().top;
+
     const codingStatsPos = document
       .getElementById("coding-stats")
       .getBoundingClientRect().top;
+
     const screenPos = window.innerHeight / 1.3;
 
-    if (aboutCardPos < screenPos) {
-      setShowAboutCard(true);
-    }
-    if (skillScenePos < screenPos) {
-      setShowSkillScene(true);
-    }
-    if (codingStatsPos < screenPos) {
-      setShowCodingStats(true);
-    }
-  };
+    setShowAboutCard(aboutCardPos < screenPos);
+    setShowSkillScene(skillScenePos < screenPos);
+    setShowCodingStats(codingStatsPos < screenPos);
+  }, []);
 
   useEffect(() => {
-    if (location.pathname === "/about") {
-      setShowAboutCard(true);
-    }
-
     window.addEventListener("scroll", checkScroll);
 
     return () => {
       window.removeEventListener("scroll", checkScroll);
     };
+  }, [checkScroll]);
+
+  useEffect(() => {
+    setShowAboutCard(location.pathname === "/about");
   }, [location.pathname]);
 
   return (
@@ -71,7 +68,7 @@ function About() {
                 paddingBottom: "20px",
               }}
             >
-              <strong className="main-about">WELCOME TO SISI'S JOURNEY</strong>
+              <strong className="main-about">WELCOME TO SISI'S UNIVERSE</strong>
             </h1>
             <div
               id="about-card"
@@ -88,9 +85,10 @@ function About() {
           id="skill-scene"
           style={{
             width: "100%",
-            height: "80vh",
+            height: "90vh",
             position: "relative",
-            paddingBottom: "100px",
+            paddingTop: "30px",
+            paddingBottom: "80px",
           }}
           className={`fade-in-section ${showSkillScene ? "visible" : ""}`}
         >
@@ -113,14 +111,12 @@ function About() {
 
             <Col md={6} className="coding-time">
               <Row>
-                {/* Top half for TotalTimeCard */}
                 <Col md={12} className="coding-time">
-                  <TotalTimeCard totalTime={totalTime} />
+                  <TotalTimeCard />
                 </Col>
 
-                {/* Bottom half for LeetCodeStat */}
                 <Col md={12} className="leetcode-stat">
-                  {/* <LeetCodeStat /> */}abc
+                  Leetcode Stats
                 </Col>
               </Row>
             </Col>

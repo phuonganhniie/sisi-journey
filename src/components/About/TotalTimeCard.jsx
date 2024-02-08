@@ -1,25 +1,32 @@
-import React from "react";
-import styles from "./TotalTimeCard.module.css";
+import React, { useState } from "react";
+import useWakaTimeTotalTime from "../../api/wakatime/useWakatimeTotalTime";
 import Counter from "./Counter";
-import useGlowPointer from "../../hooks/useGlowPointer";
+import { motion } from "framer-motion";
+import styles from "./TotalTimeCard.module.css";
 
-const TotalTimeCard = ({ totalTime }) => {
-  useGlowPointer();
+const TotalTimeCard = React.memo(() => {
+  const { totalTime, startDate } = useWakaTimeTotalTime();
 
-  let totalTimeHours = totalTime / 60 / 60;
+  let totalTimeHours = React.useMemo(() => totalTime / 60 / 60, [totalTime]);
 
   return (
-    <div className={styles.wrapper}>
-      <article className={styles.card} data-glow>
-        <div className={styles.card__content}>
-          <h2>Total Time</h2>
-          <div className={styles.counter}>
+    <div
+      className={`${styles["counter-border"]} ${styles["total-time-card"]}`}>
+      <motion.i
+        animate="active"
+        initial="hidden"
+      />
+      <article>
+        <div>
+          <h2 className={`${styles['total-time-card-h2']} ${styles['gradient-text']}`}>My Coding Times</h2>
+          <div className={styles["counter-value"]}>
             <Counter value={totalTimeHours} /> hours
           </div>
+          <p className={styles["date-info"]}>Since: {startDate} (**since starting to join Wakatime)</p>
         </div>
       </article>
     </div>
   );
-};
+});
 
 export default TotalTimeCard;

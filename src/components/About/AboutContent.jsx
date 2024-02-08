@@ -70,9 +70,9 @@ const LanguageSwitch = ({ englishText, vietnameseText }) => {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-            <p style={{ textAlign: "justify", fontSize: "15px" }}>
+            <div style={{ textAlign: "justify", fontSize: "15px" }}>
                 {textToDisplay}
-            </p>
+            </div>
             <div style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
                 <span style={{cursor: "pointer"}} onClick={handleToggle}>{flagIcon}</span>
             </div>

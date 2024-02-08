@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { TextureLoader, Vector3, MeshStandardMaterial, PlaneGeometry, MeshBasicMaterial, DoubleSide } from 'three';
-import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
+import React from 'react';
+import { DoubleSide, MeshBasicMaterial, PlaneGeometry, TextureLoader } from 'three';
 
 const Earth = () => {
   const texture = useLoader(TextureLoader, 'src/Assets/earth_texture_2.jpg');
@@ -30,7 +30,7 @@ const SkillSphere = ({ image, position }) => {
 
 const SkillImage = ({ image, position }) => {
   const texture = useLoader(TextureLoader, image);
-  const geometry = new PlaneGeometry(0.45, 0.45);
+  const geometry = new PlaneGeometry(0.4, 0.4);
   const material = new MeshBasicMaterial({ map: texture, side: DoubleSide, transparent: true });
 
   return <mesh position={position} geometry={geometry} material={material} />;
@@ -45,7 +45,7 @@ const Camera = () => {
     camera.aspect = aspect;
     camera.near = 0.5;
     camera.far = 100;
-    camera.position.z = 6;
+    camera.position.z = 5.5;
     camera.updateProjectionMatrix();
   }, [camera, aspect]);
 
