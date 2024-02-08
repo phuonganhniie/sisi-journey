@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { motion } from "framer-motion";
+import React from "react";
 import useWakaTimeTotalTime from "../../api/wakatime/useWakatimeTotalTime";
 import Counter from "./Counter";
-import { motion } from "framer-motion";
 import styles from "./TotalTimeCard.module.css";
 
 const TotalTimeCard = React.memo(() => {

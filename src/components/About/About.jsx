@@ -8,6 +8,7 @@ import AboutCard from "./AboutCard";
 import LanguagesChart from "./LanguagesChart";
 import SkillsScene from "./SkillSphere";
 import TotalTimeCard from "./TotalTimeCard";
+import LeetCode from "./LeetCode";
 
 function About() {
   const location = useLocation();
@@ -115,8 +116,8 @@ function About() {
                   <TotalTimeCard />
                 </Col>
 
-                <Col md={12} className="leetcode-stat">
-                  Leetcode Stats
+                <Col md={12} className="leetcode-stats">
+                  <LeetCode data={{ totalSolved: 920, totalQuestions: 3032, easySolved: 440, totalEasy: 767, mediumSolved: 410, totalMedium: 1594, hardSolved: 70, totalHard: 671 }} />
                 </Col>
               </Row>
             </Col>

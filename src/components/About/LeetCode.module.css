@@ -1,0 +1,66 @@
+.leetcode-component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 5%;
+  margin-top: 180px;
+  padding-right: 25px;
+  background-color: black;
+}
+
+.total-problems-chart {
+  flex-basis: 45%;
+  text-align: center;
+}
+
+.leetcode-component .problem-difficulties {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 58%;
+}
+
+.leetcode-component .problem-difficulty {
+  margin-bottom: 15px;
+}
+
+.leetcode-component .problem-difficulty span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px; 
+}
+
+.leetcode-component .progress-bar {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  height: 2px; 
+  margin-top: 5px;
+}
+
+.leetcode-component .progress {
+  background-color: #e92a67;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.easyLabel,
+.mediumLabel,
+.hardLabel {
+  /* linear-gradient(to right, #da22ff, #f7971e, #00c9ff, #2afadf) */
+  background: linear-gradient(to right, #ABE5A1,#FAD7A1,#FAD7A1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.easyNumber,
+.mediumNumber,
+.hardNumber {
+  background: linear-gradient(to right, #06beb6, #48b1bf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
