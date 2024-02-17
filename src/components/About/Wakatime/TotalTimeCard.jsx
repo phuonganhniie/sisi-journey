@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import useWakaTimeTotalTime from "../../api/wakatime/useWakatimeTotalTime";
+import useWakaTimeTotalTime from "../../../api/wakatime/useWakatimeTotalTime";
 import Counter from "./Counter";
 import styles from "./TotalTimeCard.module.css";
 

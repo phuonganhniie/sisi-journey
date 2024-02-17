@@ -30,10 +30,6 @@ const LeetCode: React.FC<LeetCodeProps> = ({ data }) => {
   const getPercentage = (solved: number, total: number) =>
     Math.round((solved / total) * 100);
 
-  const calculateWidthProgress = (solved: number, total: number) => {
-    return (solved / total) * 100;
-  };
-
   const radialOptions: ApexCharts.ApexOptions = {
     chart: {
       height: 350,
@@ -42,16 +38,16 @@ const LeetCode: React.FC<LeetCodeProps> = ({ data }) => {
     plotOptions: {
       radialBar: {
         hollow: {
-          size: "80%",
+          size: "82%",
         },
         dataLabels: {
           name: {
             offsetY: -10,
-            color: "white",
-            fontSize: "16px",
+            color: "#da22ff",
+            fontSize: "22px",
           },
           value: {
-            color: "white",
+            color: "#00c9ff",
             fontSize: "18px",
             formatter: function () {
               return `${totalSolved}/${totalQuestions}`;
@@ -66,15 +62,7 @@ const LeetCode: React.FC<LeetCodeProps> = ({ data }) => {
         shade: "dark",
         type: "horizontal",
         shadeIntensity: 0.5,
-        gradientToColors: [
-          "#ABE5A1",
-          "#FAD7A1",
-          "#FAD7A1",
-          // "#da22ff",
-          // "#f7971e",
-          // "#00c9ff",
-          // "#2afadf",
-        ],
+        gradientToColors: ["#da22ff", "#f7971e", "#00c9ff", "#2afadf"],
         inverseColors: true,
         opacityFrom: 1,
         opacityTo: 1,
@@ -82,7 +70,7 @@ const LeetCode: React.FC<LeetCodeProps> = ({ data }) => {
       },
     },
     series: [getPercentage(totalSolved, totalQuestions)],
-    labels: ["Total Solved"],
+    labels: ["Solved"],
   };
 
   return (

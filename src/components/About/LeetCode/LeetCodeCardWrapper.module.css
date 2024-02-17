@@ -1,0 +1,31 @@
+.card {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  cursor: pointer; 
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+
+.card:hover .front,
+.card.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.card:hover .back,
+.card.flipped .back {
+  transform: rotateY(0deg);
+}
+
+.front,
+.back {
+  position: relative;
+  backface-visibility: hidden;
+  transition: transform 0.6s linear;
+}
+
+.centerContent {
+  font-size: 22px;
+}

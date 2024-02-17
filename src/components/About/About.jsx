@@ -5,10 +5,11 @@ import useWakaTimeLanguages from "../../api/wakatime/useWakatimeLanguages";
 import Particle from "../Particle";
 import "./About.css";
 import AboutCard from "./AboutCard";
-import LanguagesChart from "./LanguagesChart";
+import LanguagesChart from "./Wakatime/LanguagesChart";
 import SkillsScene from "./SkillSphere";
-import TotalTimeCard from "./TotalTimeCard";
-import LeetCode from "./LeetCode";
+import TotalTimeCard from "./Wakatime/TotalTimeCard";
+import LeetCode from './LeetCode/LeetCode';
+import LeetCodeCardWrapper from './LeetCode/LeetCodeCardWrapper';
 
 function About() {
   const location = useLocation();
@@ -117,7 +118,9 @@ function About() {
                 </Col>
 
                 <Col md={12} className="leetcode-stats">
-                  <LeetCode data={{ totalSolved: 920, totalQuestions: 3032, easySolved: 440, totalEasy: 767, mediumSolved: 410, totalMedium: 1594, hardSolved: 70, totalHard: 671 }} />
+                  <LeetCodeCardWrapper redirectUrl="https://leetcode.com/phuonganhniie">
+                    <LeetCode data={{ totalSolved: 920, totalQuestions: 3032, easySolved: 440, totalEasy: 767, mediumSolved: 410, totalMedium: 1594, hardSolved: 70, totalHard: 671 }} />
+                  </LeetCodeCardWrapper>
                 </Col>
               </Row>
             </Col>

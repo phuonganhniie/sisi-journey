@@ -7,7 +7,7 @@
   border-radius: 5%;
   margin-top: 180px;
   padding-right: 25px;
-  background-color: black;
+  /* background-color: black; */
 }
 
 .total-problems-chart {
@@ -48,8 +48,7 @@
 .easyLabel,
 .mediumLabel,
 .hardLabel {
-  /* linear-gradient(to right, #da22ff, #f7971e, #00c9ff, #2afadf) */
-  background: linear-gradient(to right, #ABE5A1,#FAD7A1,#FAD7A1);
+  background: linear-gradient(to right, #f7971e, #00c9ff, #2afadf);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
