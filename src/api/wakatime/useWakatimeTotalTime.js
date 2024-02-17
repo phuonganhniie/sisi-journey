@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axiosInstance from "../axiosInstance";
 
 const useWakaTimeTotalTime = () => {
-  const apiKey = import.meta.env.VITE_WAKATIME_API_KEY;
   const [totalTime, setTotalTime] = useState({ totalTime: 0, startDate: "" });
 
   useEffect(() => {
     const fetchTotalTime = async () => {
       try {
-        const response = await axios.get(
-          `/api/v1/users/current/all_time_since_today`,
-          {
-            params: { api_key: apiKey },
-          }
+        const response = await axiosInstance.get(
+          `/api/v1/users/current/all_time_since_today`
         );
 
         const { total_seconds } = response.data.data;
@@ -25,7 +21,7 @@ const useWakaTimeTotalTime = () => {
     };
 
     fetchTotalTime();
-  }, [apiKey]);
+  }, []);
 
   return totalTime;
 };

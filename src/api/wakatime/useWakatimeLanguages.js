@@ -1,18 +1,14 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import axiosInstance from "../axiosInstance";
 
 const useWakaTimeLanguages = () => {
-  const apiKey = import.meta.env.VITE_WAKATIME_API_KEY;
   const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
     const fetchLanguages = async () => {
       try {
-        const response = await axios.get(
-          `/api/v1/users/current/stats/last_7_days`,
-          {
-            params: { api_key: apiKey },
-          }
+        const response = await axiosInstance.get(
+          `/api/v1/users/current/stats/last_7_days`
         );
 
         const sortedLanguages = response.data.data.languages
@@ -30,7 +26,7 @@ const useWakaTimeLanguages = () => {
     };
 
     fetchLanguages();
-  }, [apiKey]);
+  }, []);
 
   return languages;
 };
