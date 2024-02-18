@@ -118,9 +118,7 @@ function About() {
                 </Col>
 
                 <Col md={12} className="leetcode-stats">
-                  <LeetCodeCardWrapper redirectUrl="https://leetcode.com/phuonganhniie">
                     <LeetCode data={{ totalSolved: 920, totalQuestions: 3032, easySolved: 440, totalEasy: 767, mediumSolved: 410, totalMedium: 1594, hardSolved: 70, totalHard: 671 }} />
-                  </LeetCodeCardWrapper>
                 </Col>
               </Row>
             </Col>

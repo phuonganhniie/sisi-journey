@@ -1,6 +1,8 @@
 import ApexCharts from "apexcharts";
 import Chart from "react-apexcharts";
+import { motion } from "framer-motion";
 import styles from "./LeetCode.module.css";
+import { useState } from "react";
 
 interface LeetCodeProps {
   data: {
@@ -26,6 +28,8 @@ const LeetCode: React.FC<LeetCodeProps> = ({ data }) => {
     hardSolved,
     totalHard,
   } = data;
+
+  const [hovered, setHovered] = useState(false);
 
   const getPercentage = (solved: number, total: number) =>
     Math.round((solved / total) * 100);
@@ -73,60 +77,90 @@ const LeetCode: React.FC<LeetCodeProps> = ({ data }) => {
     labels: ["Solved"],
   };
 
-  return (
-    <div className={styles["leetcode-component"]}>
-      {/* LeetCode Total Questions */}
-      <div className={styles["total-problems-chart"]}>
-        <Chart
-          options={radialOptions}
-          series={radialOptions.series}
-          type="radialBar"
-        />
-      </div>
+  const handleRedirectLeetCode = () => {
+    window.open("https://leetcode.com/phuonganhniie", "_blank");
+  };
 
-      {/* LeetCode Difficulty */}
-      <div className={styles["problem-difficulties"]}>
-        {[
-          {
-            label: "Easy Problems",
-            solved: easySolved,
-            total: totalEasy,
-            labelClass: "easyLabel",
-            numberClass: "easyNumber",
-          },
-          {
-            label: "Medium Problems",
-            solved: mediumSolved,
-            total: totalMedium,
-            labelClass: "mediumLabel",
-            numberClass: "mediumNumber",
-          },
-          {
-            label: "Hard Problems",
-            solved: hardSolved,
-            total: totalHard,
-            labelClass: "hardLabel",
-            numberClass: "hardNumber",
-          },
-        ].map((difficulty) => (
-          <div key={difficulty.label} className={styles["problem-difficulty"]}>
-            <span className={styles[difficulty.labelClass]}>
-              {difficulty.label}
-              <strong className={styles[difficulty.numberClass]}>
-                {difficulty.solved}/{difficulty.total}
-              </strong>
-            </span>
-            <div className={styles["progress-bar"]}>
-              <div
-                className={styles["progress"]}
-                style={{
-                  width: `${(difficulty.solved / difficulty.total) * 100}%`,
-                }}
-              ></div>
+  return (
+    <div
+      className={styles["leetcode-overlay-container"]}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onClick={handleRedirectLeetCode}
+    >
+      <div className={styles["leetcode-component"]}>
+        {/* LeetCode Total Questions */}
+        <div className={styles["total-problems-chart"]}>
+          <Chart
+            options={radialOptions}
+            series={radialOptions.series}
+            type="radialBar"
+          />
+        </div>
+
+        {/* LeetCode Difficulty */}
+        <div className={styles["problem-difficulties"]}>
+          {[
+            {
+              label: "Easy Problems",
+              solved: easySolved,
+              total: totalEasy,
+              labelClass: "easyLabel",
+              numberClass: "easyNumber",
+            },
+            {
+              label: "Medium Problems",
+              solved: mediumSolved,
+              total: totalMedium,
+              labelClass: "mediumLabel",
+              numberClass: "mediumNumber",
+            },
+            {
+              label: "Hard Problems",
+              solved: hardSolved,
+              total: totalHard,
+              labelClass: "hardLabel",
+              numberClass: "hardNumber",
+            },
+          ].map((difficulty) => (
+            <div
+              key={difficulty.label}
+              className={styles["problem-difficulty"]}
+            >
+              <span className={styles[difficulty.labelClass]}>
+                {difficulty.label}
+                <strong className={styles[difficulty.numberClass]}>
+                  {difficulty.solved}/{difficulty.total}
+                </strong>
+              </span>
+              <div className={styles["progress-bar"]}>
+                <div
+                  className={styles["progress"]}
+                  style={{
+                    width: `${(difficulty.solved / difficulty.total) * 100}%`,
+                  }}
+                ></div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+      <motion.div
+        className={styles["leetcode-overlay"]}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
+        style={{ pointerEvents: hovered ? "auto" : "none" }}
+      >
+        <motion.div
+          className={styles["leetcode-overlay-text"]}
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: hovered ? 1 : 0 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+        >
+          My Leetcode Dashboard →
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
