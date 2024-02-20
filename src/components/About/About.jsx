@@ -1,15 +1,14 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import useWakaTimeLanguages from "../../api/wakatime/useWakatimeLanguages";
 import Particle from "../Particle";
 import "./About.css";
 import AboutCard from "./AboutCard";
-import LanguagesChart from "./Wakatime/LanguagesChart";
-import SkillsScene from "./SkillSphere";
-import TotalTimeCard from "./Wakatime/TotalTimeCard";
 import LeetCode from './LeetCode/LeetCode';
-import LeetCodeCardWrapper from './LeetCode/LeetCodeCardWrapper';
+import SkillsScene from "./SkillSphere";
+import LanguagesChart from "./Wakatime/LanguagesChart";
+import TotalTimeCard from "./Wakatime/TotalTimeCard";
 
 function About() {
   const location = useLocation();
