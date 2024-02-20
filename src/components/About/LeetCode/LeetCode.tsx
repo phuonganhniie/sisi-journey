@@ -3,21 +3,18 @@ import Chart from "react-apexcharts";
 import { motion } from "framer-motion";
 import styles from "./LeetCode.module.css";
 import { useState } from "react";
+import useLeetCodeStats from "../../../hooks/useLeetCodeStats";
 
-interface LeetCodeProps {
-  data: {
-    totalSolved: number;
-    totalQuestions: number;
-    easySolved: number;
-    totalEasy: number;
-    mediumSolved: number;
-    totalMedium: number;
-    hardSolved: number;
-    totalHard: number;
-  };
-}
+const LeetCode: React.FC<{ username: string }> = ({ username }) => {
+  const { data, loading, error } = useLeetCodeStats(username);
+  const [hovered, setHovered] = useState(false);
 
-const LeetCode: React.FC<LeetCodeProps> = ({ data }) => {
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!data) return <div>No data found.</div>;
+
+  console.log(data);
+
   const {
     totalSolved,
     totalQuestions,
@@ -28,8 +25,6 @@ const LeetCode: React.FC<LeetCodeProps> = ({ data }) => {
     hardSolved,
     totalHard,
   } = data;
-
-  const [hovered, setHovered] = useState(false);
 
   const getPercentage = (solved: number, total: number) =>
     Math.round((solved / total) * 100);
@@ -156,7 +151,7 @@ const LeetCode: React.FC<LeetCodeProps> = ({ data }) => {
           className={styles["leetcode-overlay-text"]}
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: hovered ? 1 : 0 }}
-          transition={{ delay: 0.1, duration: 0.5 }}
+          transition={{ delay: 0.1, duration: 0.3 }}
         >
           My Leetcode Dashboard →
         </motion.div>

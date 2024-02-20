@@ -44,7 +44,7 @@ const LanguagesChart = React.memo(({ languages }) => {
         labels: {
           boxWidth: 20,
           font: {
-            size: 13,
+            size: 14,
           },
           padding: 20,
         },

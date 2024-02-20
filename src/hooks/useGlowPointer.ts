@@ -1,7 +1,12 @@
 import React from "react";
 
-const useGlowPointer = () => {
-  const update = React.useCallback(({ x, y }) => {
+type PointerPosition = {
+  x: number;
+  y: number;
+};
+
+const useGlowPointer = (): null => {
+  const update = React.useCallback(({ x, y }: PointerPosition) => {
     document.documentElement.style.setProperty("--x", x.toFixed(2));
     document.documentElement.style.setProperty(
       "--xp",
@@ -15,9 +20,12 @@ const useGlowPointer = () => {
   }, []);
 
   React.useEffect(() => {
-    document.body.addEventListener("pointermove", update);
+    const pointerMoveHandler = (e: PointerEvent) =>
+      update({ x: e.clientX, y: e.clientY });
+
+    document.body.addEventListener("pointermove", pointerMoveHandler);
     return () => {
-      document.body.removeEventListener("pointermove", update);
+      document.body.removeEventListener("pointermove", pointerMoveHandler);
     };
   }, [update]);
 
