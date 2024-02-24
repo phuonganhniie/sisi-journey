@@ -517,7 +517,9 @@ button:focus {
 }
 
 .project-card-view {
-  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
+  box-shadow: 0 4px 5px rgba(119, 53, 136, 0.2),
+    0 8px 10px rgba(255, 105, 135, 0.2),
+    0 16px 20px rgba(255, 255, 0, 0.2); 
   color: white !important;
   background-color: transparent !important;
   opacity: 0.9 !important;
@@ -528,7 +530,9 @@ button:focus {
 .project-card-view:hover {
   transform: scale(1.02) !important;
   overflow: hidden !important;
-  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
+  box-shadow: 0 4px 4px rgba(129, 72, 144, 0.5),
+    0 8px 10px rgba(255, 105, 135, 0.5),
+    0 16px 20px rgba(255, 255, 0, 0.5); 
 }
 
 .blog-card {
