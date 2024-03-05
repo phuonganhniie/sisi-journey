@@ -5,7 +5,7 @@ import useWakaTimeLanguages from "../../api/wakatime/useWakatimeLanguages";
 import Particle from "../Particle";
 import "./About.css";
 import AboutCard from "./AboutCard";
-import LeetCode from './LeetCode/LeetCode';
+import LeetCode from "./LeetCode/LeetCode";
 import SkillsScene from "./SkillSphere";
 import LanguagesChart from "./Wakatime/LanguagesChart";
 import TotalTimeCard from "./Wakatime/TotalTimeCard";
@@ -80,7 +80,7 @@ function About() {
           </Col>
         </Row>
         <h1 className="stacks-heading">
-          <strong className="purple">Stacks & Tools</strong>
+          My <strong className="purple">Stacks & Tools</strong>
         </h1>
         <div
           id="skill-scene"
@@ -97,7 +97,7 @@ function About() {
         </div>
 
         <h1 className="coding-stats-heading">
-          <strong className="purple">My Coding Stats</strong>
+          My <strong className="purple">Coding Stats</strong>
         </h1>
         <div
           id="coding-stats"
@@ -117,7 +117,7 @@ function About() {
                 </Col>
 
                 <Col md={12} className="leetcode-stats">
-                    <LeetCode username="phuonganhniie" />
+                  <LeetCode username="phuonganhniie" />
                 </Col>
               </Row>
             </Col>

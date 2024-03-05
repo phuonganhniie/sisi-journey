@@ -13,8 +13,6 @@ const LeetCode: React.FC<{ username: string }> = ({ username }) => {
   if (error) return <div>Error: {error}</div>;
   if (!data) return <div>No data found.</div>;
 
-  console.log(data);
-
   const {
     totalSolved,
     totalQuestions,

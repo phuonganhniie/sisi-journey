@@ -55,9 +55,9 @@ function Home2() {
                   href="https://github.com/phuonganhniie"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
-                  <AiFillGithub />
+                  <AiFillGithub className="mt-2.5 ml-2.5" />
                 </a>
               </li>
               <li className="social-icons">
@@ -65,9 +65,9 @@ function Home2() {
                   href="https://www.linkedin.com/in/minerva-do/"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
-                  <FaLinkedinIn />
+                  <FaLinkedinIn className="mt-2.5 ml-2.5" />
                 </a>
               </li>
             </ul>

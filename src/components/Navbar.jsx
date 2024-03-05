@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -10,10 +10,8 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import { CgGitFork } from "react-icons/cg";
-import { ImBlog } from "react-icons/im";
 import { Link } from "react-router-dom";
 import logo from "../Assets/logo-2.png";
-
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -40,6 +38,7 @@ function NavBar() {
         <Navbar.Brand href="/" className="d-flex">
           <img src={logo} className="img-fluid logo" alt="brand" />
         </Navbar.Brand>
+
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => {
@@ -50,6 +49,7 @@ function NavBar() {
           <span></span>
           <span></span>
         </Navbar.Toggle>
+
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
@@ -80,16 +80,6 @@ function NavBar() {
                 Projects
               </Nav.Link>
             </Nav.Item>
-
-            {/* <Nav.Item>
-              <Nav.Link
-                href=""
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ImBlog style={{ marginBottom: "2px" }} /> Blogs
-              </Nav.Link>
-            </Nav.Item> */}
 
             <Nav.Item className="fork-btn">
               <Button

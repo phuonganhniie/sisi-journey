@@ -73,7 +73,7 @@ const LanguageSwitch = ({ englishText, vietnameseText }) => {
             <div style={{ textAlign: "justify", fontSize: "15px" }}>
                 {textToDisplay}
             </div>
-            <div style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "10px", marginTop: "10px" }}>
                 <span style={{cursor: "pointer"}} onClick={handleToggle}>{flagIcon}</span>
             </div>
         </div>
