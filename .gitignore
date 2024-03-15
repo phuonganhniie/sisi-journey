@@ -5,3 +5,5 @@ yarn.lock
 data
 .env
 .env.local
+
+dist
