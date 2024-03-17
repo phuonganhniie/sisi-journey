@@ -1,17 +1,17 @@
 import axios from "axios";
 
 // Create an Axios instance with global configuration
-const baseURL = import.meta.env.DEV ? "/" : "https://wakatime.com";
+const wakatimeBaseURL = import.meta.env.VITE_WAKATIME_API_URL;
 
 const axiosInstance = axios.create({
-  baseURL: baseURL,
+  baseURL: wakatimeBaseURL,
 });
 
 axiosInstance.interceptors.request.use(
   (config) => {
     config.params = {
       ...config.params,
-      api_key: import.meta.env.WAKATIME_API_KEY,
+      api_key: import.meta.env.VITE_WAKATIME_API_KEY,
     };
     return config;
   },

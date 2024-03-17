@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../axiosInstance";
 
-const wakatimeBaseUrl = import.meta.env.WAKATIME_API_URL;
-
 const useWakaTimeLanguages = () => {
   const [languages, setLanguages] = useState([]);
 
@@ -10,7 +8,7 @@ const useWakaTimeLanguages = () => {
     const fetchLanguages = async () => {
       try {
         const response = await axiosInstance.get(
-          `${wakatimeBaseUrl}/api/v1/users/current/stats/last_7_days`
+          `/v1/users/current/stats/last_7_days`
         );
 
         const sortedLanguages = response.data.data.languages
