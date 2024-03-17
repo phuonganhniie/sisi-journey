@@ -14,9 +14,10 @@ import rabbitIcon from "../../Assets/skills/rabbitmq.png"
 import reactjsIcon from "../../Assets/skills/reactjs.png"
 import redisIcon from "../../Assets/skills/redis.png"
 import vscodeIcon from "../../Assets/skills/vscode.png"
+import earthTexture from "../../Assets/earth_texture_2.jpg"
 
 const Earth = () => {
-  const texture = useLoader(TextureLoader, 'src/Assets/earth_texture_2.jpg');
+  const texture = useLoader(TextureLoader, earthTexture);
   return (
     <mesh>
       <sphereGeometry args={[1.1, 256, 256]} />
