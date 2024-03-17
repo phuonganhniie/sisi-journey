@@ -11,7 +11,7 @@ axiosInstance.interceptors.request.use(
   (config) => {
     config.params = {
       ...config.params,
-      api_key: import.meta.env.VITE_WAKATIME_API_KEY,
+      api_key: import.meta.env.WAKATIME_API_KEY,
     };
     return config;
   },
