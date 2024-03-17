@@ -8,7 +8,7 @@ const useWakaTimeLanguages = () => {
     const fetchLanguages = async () => {
       try {
         const response = await axiosInstance.get(
-          `https://yzi52dogaf.execute-api.ap-southeast-1.amazonaws.com/api/v1/users/current/stats/last_7_days`
+          `https://yzi52dogaf.execute-api.ap-southeast-1.amazonaws.com/api/{proxy+}/v1/users/current/stats/last_7_days`
         );
 
         const sortedLanguages = response.data.data.languages

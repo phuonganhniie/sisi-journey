@@ -8,7 +8,7 @@ const useWakaTimeTotalTime = () => {
     const fetchTotalTime = async () => {
       try {
         const response = await axiosInstance.get(
-          `https://yzi52dogaf.execute-api.ap-southeast-1.amazonaws.com/api/v1/users/current/all_time_since_today`
+          `https://yzi52dogaf.execute-api.ap-southeast-1.amazonaws.com/api/{proxy+}/v1/users/current/all_time_since_today`
         );
 
         const { total_seconds } = response.data.data;
