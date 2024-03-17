@@ -2,6 +2,7 @@ import axios from "axios";
 
 // Create an Axios instance with global configuration
 const wakatimeBaseURL = import.meta.env.VITE_WAKATIME_API_URL;
+console.log('base url on prd:', wakatimeBaseURL)
 
 const axiosInstance = axios.create({
   baseURL: wakatimeBaseURL,
