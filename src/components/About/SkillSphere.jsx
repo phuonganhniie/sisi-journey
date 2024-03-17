@@ -1,6 +1,19 @@
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
 import React from 'react';
 import { DoubleSide, MeshBasicMaterial, PlaneGeometry, TextureLoader } from 'three';
+import awsIcon from "../../Assets/skills/aws.png"
+import dockerIcon from "../../Assets/skills/docker.png"
+import gitIcon from "../../Assets/skills/git.png"
+import goIcon from "../../Assets/skills/golang.png"
+import kafkaIcon from "../../Assets/skills/kafka_white.png"
+import mongoIcon from "../../Assets/skills/mongo.png"
+import mysqlIcon from "../../Assets/skills/mysql.png"
+import nodejsIcon from "../../Assets/skills/nodejs.png"
+import postgresIcon from "../../Assets/skills/postgres.png"
+import rabbitIcon from "../../Assets/skills/rabbitmq.png"
+import reactjsIcon from "../../Assets/skills/reactjs.png"
+import redisIcon from "../../Assets/skills/redis.png"
+import vscodeIcon from "../../Assets/skills/vscode.png"
 
 const Earth = () => {
   const texture = useLoader(TextureLoader, 'src/Assets/earth_texture_2.jpg');
@@ -55,21 +68,21 @@ const Camera = () => {
 const SkillsScene = () => {
   const skills = [
     // Stacks
-    { skill: 'Golang', image: 'src/Assets/skills/golang.png' },
-    { skill: 'Nodejs', image: 'src/Assets/skills/nodejs.png' },
-    { skill: 'Mysql', image: 'src/Assets/skills/mysql.png' },
-    { skill: 'Postgres', image: 'src/Assets/skills/postgres.png' },
-    { skill: 'Mongodb', image: 'src/Assets/skills/mongo.png' },
-    { skill: 'Redis', image: 'src/Assets/skills/redis.png' },
-    { skill: 'Kafka', image: 'src/Assets/skills/kafka_white.png' },
-    { skill: 'RabbitMQ', image: 'src/Assets/skills/rabbitmq.png' },
-    { skill: 'AWS', image: 'src/Assets/skills/aws.png' },
-    { skill: 'ReactJS', image: 'src/Assets/skills/reactjs.png' },
+    { skill: 'Golang', image: goIcon },
+    { skill: 'Nodejs', image: nodejsIcon },
+    { skill: 'Mysql', image: mysqlIcon },
+    { skill: 'Postgres', image: postgresIcon },
+    { skill: 'Mongodb', image: mongoIcon },
+    { skill: 'Redis', image: redisIcon },
+    { skill: 'Kafka', image: kafkaIcon },
+    { skill: 'RabbitMQ', image: rabbitIcon },
+    { skill: 'AWS', image: awsIcon },
+    { skill: 'ReactJS', image: reactjsIcon },
 
     // Tools
-    { skill: 'VSCode', image: 'src/Assets/skills/vscode.png' },
-    { skill: 'Git', image: 'src/Assets/skills/git.png' },
-    { skill: 'Docker', image: 'src/Assets/skills/docker.png' },
+    { skill: 'VSCode', image: vscodeIcon },
+    { skill: 'Git', image: gitIcon },
+    { skill: 'Docker', image: dockerIcon },
   ];
 
   return (
