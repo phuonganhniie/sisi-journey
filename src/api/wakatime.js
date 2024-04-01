@@ -1,13 +1,13 @@
 import axios from "axios";
 
-// Create an Axios instance with global configuration
-const wakatimeBaseURL = import.meta.env.VITE_WAKATIME_API_URL;
+// Create an Wakatime instance with global configuration
+const wkBaseURL = import.meta.env.VITE_WAKATIME_API_URL;
 
-const axiosInstance = axios.create({
-  baseURL: wakatimeBaseURL,
+const wkInstance = axios.create({
+  baseURL: wkBaseURL,
 });
 
-axiosInstance.interceptors.request.use(
+wkInstance.interceptors.request.use(
   (config) => {
     config.params = {
       ...config.params,
@@ -20,7 +20,7 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-axiosInstance.interceptors.response.use(
+wkInstance.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -30,4 +30,4 @@ axiosInstance.interceptors.response.use(
   }
 );
 
-export default axiosInstance;
+export default wkInstance;

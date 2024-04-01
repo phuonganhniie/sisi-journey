@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axiosInstance from "../axiosInstance";
+import wkInstance from "../wakatime";
 
 const useWakaTimeTotalTime = () => {
   const [totalTime, setTotalTime] = useState({ totalTime: 0, startDate: "" });
@@ -7,7 +7,7 @@ const useWakaTimeTotalTime = () => {
   useEffect(() => {
     const fetchTotalTime = async () => {
       try {
-        const response = await axiosInstance.get(
+        const response = await wkInstance.get(
           `/v1/users/current/all_time_since_today`
         );
 

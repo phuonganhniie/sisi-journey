@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axiosInstance from "../axiosInstance";
+import wkInstance from "../wakatime";
 
 const useWakaTimeLanguages = () => {
   const [languages, setLanguages] = useState([]);
@@ -7,7 +7,7 @@ const useWakaTimeLanguages = () => {
   useEffect(() => {
     const fetchLanguages = async () => {
       try {
-        const response = await axiosInstance.get(
+        const response = await wkInstance.get(
           `/v1/users/current/stats/last_7_days`
         );
 
