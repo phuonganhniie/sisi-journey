@@ -7,10 +7,10 @@ export default async function handler(req) {
   url.search = new URLSearchParams({
     ...Object.fromEntries(new URL(req.url, "http://localhost").searchParams),
     api_key: apiKey,
-  });
+  }).toString();
   console.log("Calling Wakatime API URL:", url.toString());
 
-  const wakatimeResponse = await fetch(url, toString(), {
+  const wakatimeResponse = await fetch(url.toString(), {
     method: req.method,
     headers: {
       "Content-Type": "application/json",
