@@ -1,7 +1,7 @@
 export default async function handler(req) {
   const path = req.url.slipt("?")[0].replace("/api/wakatime-proxy/", "");
   const baseUrl = `https://wakatime.com/api/v1/users/current/${path}`;
-  const apiKey = import.meta.env.VITE_WAKATIME_API_KEY;
+  const apiKey = process.env.VITE_WAKATIME_API_KEY;
 
   const url = new URL(baseUrl);
   url.search = new URLSearchParams({
