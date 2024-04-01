@@ -6,10 +6,10 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      "/api": {
-        target: "https://wakatime.com/api",
+      '/api/wakatime-proxy': {
+        target: 'https://wakatime.com/api/v1/users/current',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => path.replace(/^\/api\/wakatime-proxy/, ''),
       },
     },
     cors: false

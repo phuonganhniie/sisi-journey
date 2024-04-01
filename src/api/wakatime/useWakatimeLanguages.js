@@ -8,7 +8,7 @@ const useWakaTimeLanguages = () => {
     const fetchLanguages = async () => {
       try {
         const response = await wkInstance.get(
-          `/api/wakatime-proxy/stats/last_7_days`
+          `/stats/last_7_days`
         );
 
         const sortedLanguages = response.data.data.languages
