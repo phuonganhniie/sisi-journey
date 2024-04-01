@@ -7,24 +7,58 @@ export default async function handler(req) {
   url.search = new URLSearchParams({
     ...Object.fromEntries(new URL(req.url, "http://localhost").searchParams),
     api_key: apiKey,
-  }).toString();
+  });
   console.log("Calling Wakatime API URL:", url.toString());
 
-  const wakatimeResponse = await fetch(url.toString(), {
-    method: req.method,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-  const body = await wakatimeResponse.json();
-  console.log("Response from Wakatime API:", body);
+    const wakatimeResponse = await fetch(url.toString(), {
+      method: req.method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      signal: controller.signal,
+    });
 
-  return new Response(JSON.stringify(body), {
-    status: wakatimeResponse.status,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-    },
-  });
+    clearTimeout(timeoutId);
+
+    if (!wakatimeResponse.ok) {
+      console.error(
+        "Wakatime API request failed:",
+        wakatimeResponse.statusText
+      );
+      return new Response(
+        JSON.stringify({ error: wakatimeResponse.statusText }),
+        {
+          status: wakatimeResponse.status,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    }
+
+    const body = await wakatimeResponse.json();
+    console.log("Response from Wakatime API:", body);
+
+    return new Response(JSON.stringify(body), {
+      status: wakatimeResponse.status,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching from Wakatime API:", error);
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
+      status: 500,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    });
+  }
 }
