@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Create an Wakatime instance with global configuration
-const wkBaseURL = import.meta.env.VITE_WAKATIME_API_URL;
+const wkBaseURL = "/api/wakatime-proxy";
 
 const wkInstance = axios.create({
   baseURL: wkBaseURL,
@@ -9,10 +9,6 @@ const wkInstance = axios.create({
 
 wkInstance.interceptors.request.use(
   (config) => {
-    config.params = {
-      ...config.params,
-      api_key: import.meta.env.VITE_WAKATIME_API_KEY,
-    };
     return config;
   },
   (error) => {

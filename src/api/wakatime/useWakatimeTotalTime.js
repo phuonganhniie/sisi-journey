@@ -8,7 +8,7 @@ const useWakaTimeTotalTime = () => {
     const fetchTotalTime = async () => {
       try {
         const response = await wkInstance.get(
-          `/v1/users/current/all_time_since_today`
+          `/api/wakatime-proxy/all_time_since_today`
         );
 
         const { total_seconds } = response.data.data;
