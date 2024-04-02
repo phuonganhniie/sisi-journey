@@ -40,6 +40,7 @@ export default async function handler(req) {
         }
       );
     }
+    console.log("Wakatime Response Full:", wakatimeResponse)
 
     const body = await wakatimeResponse.json();
     console.log("Response from Wakatime API:", body);
