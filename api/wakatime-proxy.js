@@ -1,4 +1,6 @@
 export default async function handler(req) {
+  const start = Date.now();
+
   const path = req.url.split("?")[0].replace("/api/wakatime-proxy/", "");
   const baseUrl = `https://wakatime.com/api/v1/users/current/${path}`;
   const apiKey = process.env.VITE_WAKATIME_API_KEY;
@@ -40,12 +42,13 @@ export default async function handler(req) {
         }
       );
     }
-    console.log("Wakatime Response Full:", wakatimeResponse)
 
     const body = await wakatimeResponse.json();
     console.log("Response from Wakatime API:", body);
 
-    return new Response(body, {
+    console.log(`Time elapsed: ${Date.now() - start} ms`);
+
+    return new Response(JSON.stringify(body), {
       status: wakatimeResponse.status,
       headers: {
         "Access-Control-Allow-Origin": "*",
