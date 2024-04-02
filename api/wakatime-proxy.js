@@ -51,7 +51,7 @@
 //   }
 // }
 
-export default async function handler(req) {
+export default async function handler(req, res) {
   const start = Date.now();
 
   const path = req.url.split("?")[0].replace("/api/wakatime-proxy/", "");
@@ -101,13 +101,19 @@ export default async function handler(req) {
 
     console.log(`Time elapsed: ${Date.now() - start} ms`);
 
-    return new Response(JSON.stringify(body), {
-      status: wakatimeResponse.status,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-    });
+    res.write('<html>');
+    res.write('<body>');
+    res.write('<h1>Hello, World!</h1>');
+    res.write('</body>');
+    res.write('</html>');
+    res.end();
+    // return new Response(JSON.stringify(body), {
+    //   status: wakatimeResponse.status,
+    //   headers: {
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Content-Type": "application/json",
+    //   },
+    // });
   } catch (error) {
     console.error("Error fetching from Wakatime API:", error);
     return new Response(JSON.stringify({ error: "Internal Server Error" }), {
