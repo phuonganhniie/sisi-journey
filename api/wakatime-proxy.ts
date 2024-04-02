@@ -1,15 +1,15 @@
-export default async function handler(req, res) {
-  const start = Date.now();
+import { VercelRequest, VercelResponse } from "@vercel/node";
 
-  const path = req.url.split("?")[0].replace("/api/wakatime-proxy/", "");
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  const path = req.url!.split("?")[0].replace("/api/wakatime-proxy/", "");
   const baseUrl = `https://wakatime.com/api/v1/users/current/${path}`;
   const apiKey = process.env.VITE_WAKATIME_API_KEY;
 
   const url = new URL(baseUrl);
   url.search = new URLSearchParams({
-    ...Object.fromEntries(new URL(req.url, "http://localhost").searchParams),
-    api_key: apiKey,
-  });
+    ...Object.fromEntries(new URL(req.url!, "http://localhost").searchParams),
+    api_key: apiKey!,
+  }).toString();
   console.log("Calling Wakatime API URL:", url.toString());
 
   try {
@@ -31,16 +31,12 @@ export default async function handler(req, res) {
         "Wakatime API request failed:",
         wakatimeResponse.statusText
       );
-      return new Response(
-        JSON.stringify({ error: wakatimeResponse.statusText }),
-        {
-          status: wakatimeResponse.status,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        }
-      );
+
+      return res
+        .status(wakatimeResponse.status)
+        .setHeader("Access-Control-Allow-Origin", "*")
+        .setHeader("Content-Type", "application/json")
+        .json({ error: wakatimeResponse.statusText });
     }
 
     const body = await wakatimeResponse.json();

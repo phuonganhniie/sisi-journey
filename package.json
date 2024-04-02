@@ -11,6 +11,7 @@
         "@testing-library/react": "^12.1.4",
         "@testing-library/user-event": "^13.5.0",
         "@vercel/analytics": "^1.2.2",
+        "@vercel/node": "^3.0.25",
         "@vercel/speed-insights": "^1.0.10",
         "apexcharts": "^3.45.2",
         "axios": "^1.6.7",
