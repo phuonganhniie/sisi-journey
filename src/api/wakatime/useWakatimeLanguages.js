@@ -10,7 +10,7 @@ const useWakaTimeLanguages = () => {
         const response = await wkInstance.get(
           `/stats/last_7_days`
         );
-        console.log("Response from WAKA: ", response.data.data)
+        console.log("Response from waka languages: ", response.data)
 
         const sortedLanguages = response.data.data.languages
           .sort((a, b) => b.percent - a.percent)

@@ -45,7 +45,7 @@ export default async function handler(req) {
     const body = await wakatimeResponse.json();
     console.log("Response from Wakatime API:", body);
 
-    return new Response(JSON.stringify(body), {
+    return new Response(body, {
       status: wakatimeResponse.status,
       headers: {
         "Access-Control-Allow-Origin": "*",
