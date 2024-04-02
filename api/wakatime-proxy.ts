@@ -1,9 +1,12 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 
+const apiKey: string = process.env.VITE_WAKATIME_API_KEY!;
+const wakatimeApiProxyUrl: string = "/api/wakatime-proxy/";
+const wakatimeBaseUrl: string = "https://wakatime.com/api/v1/users/current";
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const path = req.url!.split("?")[0].replace("/api/wakatime-proxy/", "");
-  const baseUrl = `https://wakatime.com/api/v1/users/current/${path}`;
-  const apiKey = process.env.VITE_WAKATIME_API_KEY;
+  const path = req.url!.split("?")[0].replace(wakatimeApiProxyUrl, "");
+  const baseUrl = `${wakatimeBaseUrl}/${path}`;
 
   const url = new URL(baseUrl);
   url.search = new URLSearchParams({
