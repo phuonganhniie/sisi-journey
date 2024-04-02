@@ -44,30 +44,19 @@ export default async function handler(req, res) {
     }
 
     const body = await wakatimeResponse.json();
-    console.log("Response from Wakatime API:", body);
 
-    console.log(`Time elapsed: ${Date.now() - start} ms`);
-
-    return res.status(wakatimeResponse.status).setHeader("Access-Control-Allow-Origin", "*").setHeader("Content-Type", "application/json").json(body)
-    // return res.send(
-    //   new Response(JSON.stringify(body), {
-    //     status: wakatimeResponse.status,
-    //     headers: {
-    //       "Access-Control-Allow-Origin": "*",
-    //       "Content-Type": "application/json",
-    //     },
-    //   })
-    // );
+    return res
+      .status(wakatimeResponse.status)
+      .setHeader("Access-Control-Allow-Origin", "*")
+      .setHeader("Content-Type", "application/json")
+      .json(body);
   } catch (error) {
     console.error("Error fetching from Wakatime API:", error);
-    return res.send(
-      new Response(JSON.stringify({ error: "Internal Server Error" }), {
-        status: 500,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      })
-    );
+
+    return res
+      .status(500)
+      .setHeader("Access-Control-Allow-Origin", "*")
+      .setHeader("Content-Type", "application/json")
+      .json({ error: "Internal Server Error" });
   }
 }
