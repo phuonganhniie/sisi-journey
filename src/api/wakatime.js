@@ -11,11 +11,13 @@ wkInstance.interceptors.request.use(
   (config) => {
     config.params = {
       ...config.params,
-      api_key: import.meta.env.VITE_WAKATIME_API_KEY,
+      // api_key: import.meta.env.VITE_WAKATIME_API_KEY,
+      api_key: process.env.VITE_WAKATIME_API_KEY,
     };
     return config;
   },
   (error) => {
+    console.log("Error from interceptor:", error)
     return Promise.reject(error);
   }
 );
