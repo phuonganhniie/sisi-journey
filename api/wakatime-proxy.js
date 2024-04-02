@@ -48,22 +48,16 @@ export default async function handler(req, res) {
 
     console.log(`Time elapsed: ${Date.now() - start} ms`);
 
-    return res.send(
-      new Response(JSON.stringify(body), {
-        status: wakatimeResponse.status,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      })
-    );
-    // return res = Response(JSON.stringify(body), {
-    //   status: wakatimeResponse.status,
-    //   headers: {
-    //     "Access-Control-Allow-Origin": "*",
-    //     "Content-Type": "application/json",
-    //   },
-    // });
+    return res.status(wakatimeResponse.status).setHeader("Access-Control-Allow-Origin", "*").setHeader("Content-Type", "application/json").json(body)
+    // return res.send(
+    //   new Response(JSON.stringify(body), {
+    //     status: wakatimeResponse.status,
+    //     headers: {
+    //       "Access-Control-Allow-Origin": "*",
+    //       "Content-Type": "application/json",
+    //     },
+    //   })
+    // );
   } catch (error) {
     console.error("Error fetching from Wakatime API:", error);
     return res.send(
