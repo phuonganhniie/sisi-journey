@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/wakatime-proxy/:path*",
-      "destination": "/api/wakatime-proxy.ts"
+      "destination": "/api/wakatime-proxy.js"
     }
   ]
 }
