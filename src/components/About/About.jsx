@@ -63,16 +63,7 @@ function About() {
               paddingBottom: "50px",
             }}
           >
-            <h1
-              style={{
-                fontFamily: "Alegreya Sans SC",
-                fontSize: "60px",
-                paddingBottom: "20px",
-              }}
-            >
-              <TitleType />
-              {/* <strong className="main-about">WELCOME TO SISI'S MILKY WAY</strong> */}
-            </h1>
+            <TitleType />
             <div
               id="about-card"
               className={`fade-in-section ${showAboutCard ? "visible" : ""}`}
