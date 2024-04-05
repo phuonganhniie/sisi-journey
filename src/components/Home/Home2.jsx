@@ -18,7 +18,7 @@ function Home2() {
             </Tilt>
           </Col>
           <Col md={7} className="home-about-description">
-            <h1 style={{ fontSize: "35px" }}>
+            <h1 style={{ fontSize: "30px" }}>
               THANK YOU FOR <span className="purple"> APPEARING </span> HERE
             </h1>
             <p className="home-about-body">
@@ -57,7 +57,7 @@ function Home2() {
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
                 >
-                  <AiFillGithub className="mt-2.5 ml-2.5" />
+                  <AiFillGithub />
                 </a>
               </li>
               <li className="social-icons">
@@ -67,7 +67,7 @@ function Home2() {
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
                 >
-                  <FaLinkedinIn className="mt-2.5 ml-2.5" />
+                  <FaLinkedinIn />
                 </a>
               </li>
             </ul>

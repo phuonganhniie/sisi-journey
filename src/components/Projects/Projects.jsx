@@ -40,7 +40,7 @@ function Projects() {
       <Particle />
       <Container>
         <h1 className="project-heading">
-          My <strong className="purple">D.I.Y </strong> asteroid
+          My <strong className="purple">D.I.Y </strong> planet
         </h1>
         <p style={{ color: "white" }}>
           Here are a few projects I've worked on recently.

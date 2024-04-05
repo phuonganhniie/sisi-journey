@@ -4,7 +4,7 @@ const AboutContent = () => {
     let englishContent = (
         <div>
             <blockquote className="blockquote mb-0">
-                <p style={{ textAlign: "justify", fontSize: "18px" }}>
+                <p style={{ textAlign: "justify", fontSize: "16px" }}>
                     Hello there, thank you for visiting my website. I'm from Vietnam, so I have a deep love for the Vietnamese language. That's why I chose to introduce myself in my native language, partly because I don't want to turn this into a too-professional portfolio or too-personal blog, but I still leave the English translation, for you.
                     <br />    
                     <br /> To briefly introduce myself, I'm just an ordinary girl. 
@@ -30,7 +30,7 @@ const AboutContent = () => {
     let vietnameseContent = (
         <div>  
             <blockquote className="blockquote mb-0">
-                <p style={{ textAlign: "justify", fontSize: "18px" }}>
+                <p style={{ textAlign: "justify", fontSize: "16px" }}>
                     Có lẽ phần giới thiệu ở trang này mình sẽ viết bằng tiếng Việt, phần vì đây là tiếng mẹ đẻ của mình, phần vì mình không muốn
                     ở đây trở thành một quả porfolio quá là chuyên nghiệp hay một chiếc blog quá là cá nhân, nhưng mình vẫn sẽ
                     để tiếng Anh ở bên dưới nhé.

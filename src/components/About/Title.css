@@ -1,0 +1,13 @@
+.title {
+  background: linear-gradient(to right, #da22ff, #f7971e, #00c9ff, #2afadf);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 60px;
+}
+
+.cursor{
+  font-size: 60px;
+  animation: Typewriter-cursor 1s infinite;
+  color: #f7971e;
+  margin-left: 5px;
+}

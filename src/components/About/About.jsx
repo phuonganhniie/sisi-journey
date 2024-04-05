@@ -9,6 +9,7 @@ import LeetCode from "./LeetCode/LeetCode";
 import SkillsScene from "./SkillSphere";
 import LanguagesChart from "./Wakatime/LanguagesChart";
 import TotalTimeCard from "./Wakatime/TotalTimeCard";
+import TitleType from "./Title";
 
 function About() {
   const location = useLocation();
@@ -65,11 +66,12 @@ function About() {
             <h1
               style={{
                 fontFamily: "Alegreya Sans SC",
-                fontSize: "4em",
+                fontSize: "60px",
                 paddingBottom: "20px",
               }}
             >
-              <strong className="main-about">WELCOME TO SISI'S UNIVERSE</strong>
+              <TitleType />
+              {/* <strong className="main-about">WELCOME TO SISI'S MILKY WAY</strong> */}
             </h1>
             <div
               id="about-card"

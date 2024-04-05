@@ -1,15 +1,13 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import {
-  AiFillStar,
   AiOutlineFundProjectionScreen,
   AiOutlineHome,
-  AiOutlineUser,
+  AiOutlineUser
 } from "react-icons/ai";
-import { CgGitFork } from "react-icons/cg";
+import { FaLaptopCode } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../Assets/logo-2.png";
 
@@ -45,16 +43,13 @@ function NavBar() {
             updateExpanded(expand ? false : "expanded");
           }}
         >
-          <span></span>
-          <span></span>
-          <span></span>
         </Navbar.Toggle>
 
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
+                <AiOutlineHome /> Home
               </Nav.Link>
             </Nav.Item>
 
@@ -81,15 +76,16 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/phuonganhniie"
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="https://phuonganhniie.wixsite.com/coming-soon"
                 target="_blank"
-                className="fork-btn-inner"
+                onClick={() => updateExpanded(false)}
               >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
+                <FaLaptopCode />{" "}
+                Blog
+              </Nav.Link>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
