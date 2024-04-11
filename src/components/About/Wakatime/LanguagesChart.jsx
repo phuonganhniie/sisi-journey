@@ -60,7 +60,7 @@ const LanguagesChart = React.memo(({ languages }) => {
   }), []);
 
   return (
-    <div style={{ width: "480px", height: "450px", margin: "0 auto" }}>
+    <div style={{ width: "450px", height: "400px", margin: "0 auto" }}>
       <Doughnut data={data} options={options} />
     </div>
   );

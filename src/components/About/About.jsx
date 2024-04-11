@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import useWakaTimeLanguages from "../../api/wakatime/useWakatimeLanguages";
 import Particle from "../Particle";
@@ -7,9 +6,9 @@ import "./About.css";
 import AboutCard from "./AboutCard";
 import LeetCode from "./LeetCode/LeetCode";
 import SkillsScene from "./SkillSphere";
+import TitleType from "./Title";
 import LanguagesChart from "./Wakatime/LanguagesChart";
 import TotalTimeCard from "./Wakatime/TotalTimeCard";
-import TitleType from "./Title";
 
 function About() {
   const location = useLocation();
@@ -52,72 +51,60 @@ function About() {
   }, [location.pathname]);
 
   return (
-    <Container fluid className="about-section">
+    <div className="relative pt-36">
       <Particle />
-      <Container>
-        <Row style={{ justifyContent: "center", padding: "10px" }}>
-          <Col
-            md={12}
-            style={{
-              paddingTop: "30px",
-              paddingBottom: "50px",
-            }}
-          >
+      <div className="max-w-full">
+
+        {/* About Card */}
+        <div className="flex justify-centerp p-20">
+          <div className="w-full md:px-6">
             <TitleType />
-            <div
-              id="about-card"
-              className={`fade-in-section ${showAboutCard ? "visible" : ""}`}
-            >
+            <div id="about-card" className={`fade-in-section ${showAboutCard ? "visible" : ""}`}>
               <AboutCard />
             </div>
-          </Col>
-        </Row>
-        <h1 className="stacks-heading">
+          </div>
+        </div>
+
+        {/* Stack & Tools */}
+        <h1 className="text-center font-bold stacks-heading">
           My <strong className="purple">Stacks & Tools</strong> planet
         </h1>
         <div
           id="skill-scene"
-          style={{
-            width: "100%",
-            height: "90vh",
-            position: "relative",
-            paddingTop: "30px",
-            paddingBottom: "80px",
-          }}
-          className={`fade-in-section ${showSkillScene ? "visible" : ""}`}
+          style={{ height: "90vh" }}
+          className={`w-full relative pt-12 pb-10 fade-in-section ${showSkillScene ? "visible" : ""}`}
         >
           <SkillsScene />
         </div>
 
-        <h1 className="coding-stats-heading">
+        {/* Coding Stats */}
+        <h1 className="text-center font-bold pt-14 coding-stats-heading">
           My <strong className="purple">Coding Stats</strong> planet
         </h1>
         <div
           id="coding-stats"
           className={`fade-in-section ${showCodingStats ? "visible" : ""}`}
         >
-          <Row className="coding-stats-section">
+          <div className="flex flex-wrap">
             {languages.length > 0 && (
-              <Col md={6} className="coding-chart">
+              <div className="w-full md:w-1/2 coding-chart">
                 <LanguagesChart languages={languages} />
-              </Col>
+              </div>
             )}
 
-            <Col md={6} className="coding-time">
-              <Row>
-                <Col md={12} className="coding-time">
-                  <TotalTimeCard />
-                </Col>
+            <div className="w-full md:w-1/2">
+              <div className="w-full coding-time">
+                <TotalTimeCard />
+              </div>
 
-                <Col md={12} className="leetcode-stats">
-                  <LeetCode username="phuonganhniie" />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+              <div className="w-full md:w-4/5 leetcode-stats">
+                <LeetCode username="phuonganhniie" />
+              </div>
+            </div>
+          </div>
         </div>
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 }
 

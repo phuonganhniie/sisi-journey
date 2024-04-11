@@ -10,16 +10,16 @@ function Home2() {
     <div className="container mt-5 mx-auto px-4" id="about">
       <div className="mx-auto">
         <div className="flex flex-wrap">
-          <div className="w-full md:w-2/5 p-4">
+          <div className="w-full md:w-2/5 p-5">
             <Tilt>
               <img src={myImg} className="w-3/4 h-auto" alt="avatar" />
             </Tilt>
           </div>
-          <div className="text-[white] w-full md:w-3/5 p-4">
-            <h1 className="text-3xl">
+          <div className="text-[white] w-full md:w-3/5 pt-4">
+            <h1 className="text-4xl font-mono">
               THANK YOU FOR <span className="purple"> APPEARING </span> HERE
             </h1>
-            <p className="home-about-body">
+            <p className="pt-10 text-left">
               My name is <b className="purple">Phương Anh</b>, but if you're not sure how to pronounce it, you can call me <b className="purple"> Minerva </b> - which is my English name. I'm a developer who <b className="purple">loves</b> to code and works on both Back-End and Front-End, but I definitely lean more towards Back-End. Sometimes, I also dabble in systems because, at the end of the day, I just the normal person who loves <b className="purple">technology, researching, exploring, and learning.</b>
               <br />
               <br />I work regularly with
