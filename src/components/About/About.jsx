@@ -73,7 +73,7 @@ function About() {
           </Col>
         </Row>
         <h1 className="stacks-heading">
-          My <strong className="purple">Stacks & Tools</strong>
+          My <strong className="purple">Stacks & Tools</strong> planet
         </h1>
         <div
           id="skill-scene"
@@ -90,7 +90,7 @@ function About() {
         </div>
 
         <h1 className="coding-stats-heading">
-          My <strong className="purple">Coding Stats</strong>
+          My <strong className="purple">Coding Stats</strong> planet
         </h1>
         <div
           id="coding-stats"

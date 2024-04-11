@@ -151,7 +151,7 @@ const LeetCode: React.FC<{ username: string }> = ({ username }) => {
           animate={{ y: 0, opacity: hovered ? 1 : 0 }}
           transition={{ delay: 0.1, duration: 0.3 }}
         >
-          My Leetcode Dashboard →
+          My Leetcode Planet →
         </motion.div>
       </motion.div>
     </div>

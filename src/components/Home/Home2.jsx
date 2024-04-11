@@ -1,24 +1,22 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/pa-avatar.png";
-import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import Tilt from "react-parallax-tilt";
+import myImg from "../../Assets/pa-avatar.png";
 
 function Home2() {
   return (
-    <Container fluid className="home-about-section" id="about">
-      <Container>
-        <Row>
-          <Col md={5} className="myAvtar">
+    <div className="container mt-5 mx-auto px-4" id="about">
+      <div className="mx-auto">
+        <div className="flex flex-wrap">
+          <div className="w-full md:w-2/5 p-4">
             <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
+              <img src={myImg} className="w-3/4 h-auto" alt="avatar" />
             </Tilt>
-          </Col>
-          <Col md={7} className="home-about-description">
-            <h1 style={{ fontSize: "30px" }}>
+          </div>
+          <div className="text-[white] w-full md:w-3/5 p-4">
+            <h1 className="text-3xl">
               THANK YOU FOR <span className="purple"> APPEARING </span> HERE
             </h1>
             <p className="home-about-body">
@@ -38,13 +36,13 @@ function Home2() {
               <br />
               <br />
               Because after all, my greatest aspiration is together with technology to develop the world in
-              &nbsp; 
+              &nbsp;
               <b className="purple"> a civilized and beautiful way.</b>
             </p>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={12} className="home-about-social">
+          </div>
+        </div>
+        <div className="flex flex-wrap">
+          <div className="text-[white] w-full p-4">
             <h1>FIND ME ON</h1>
             <p>
               Feel free to <span className="purple">connect </span>with me
@@ -71,10 +69,11 @@ function Home2() {
                 </a>
               </li>
             </ul>
-          </Col>
-        </Row>
-      </Container>
-    </Container>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
+
 export default Home2;
