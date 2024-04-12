@@ -1,12 +1,12 @@
 {
-  "routes": [
-    {"handle": "filesystem"},
-    {"src": "/.*", "dest": "/index.html"}
-  ],
   "rewrites": [
     {
       "source": "/api/wakatime-proxy/:path*",
       "destination": "/api/wakatime-proxy.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
