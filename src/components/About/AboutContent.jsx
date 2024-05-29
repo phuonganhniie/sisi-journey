@@ -18,9 +18,9 @@ const AboutContent = () => {
                     or expressing my thoughts and opinions on any issue that I care about; 
                     or in other words, my blog is not only about programming, technology but also about life, worldview, and experiences.
                     <br />
-                    <br /> I learn every day, not because I want to become someone brilliant or outstanding, just simply that I always remember that knowledge is the most steadfast path to the places that this world has. 
+                    <br /> I learn every day, not because I want to become someone brilliant or outstanding, just simply that I always remember that knowledge is the most steadfast path to the places that I dreamt of - that this world has. 
                     I just hope that I'm a little better today than I was yesterday.
-                    Life has its ups and downs, and so do people - "Every is not Sunday".
+                    Life has its ups and downs, and so do people - "Every day is not Sunday".
                     <br />
                     <br /> I love the journey I'm on, and I'm always grateful to the predecessors, brothers, sisters, friends, colleagues, 
                     and younger ones that I have been fortunate to meet, to be helped, to learn from, to develop my thinking and kindness from them.
@@ -44,7 +44,7 @@ const AboutContent = () => {
                     <br />
                     <br /> Mình thích công nghệ, mình thích code, mình thích du lịch, mình thích đọc sách dù đôi khi mình cũng lười lắm, mình yêu âm nhạc và mình luôn rất tò mò về thế giới này.
                     <br />
-                    <br /> Mình học tập mỗi ngày, không phải vì mình muốn trở thành một người tài giỏi, xuất chúng, mà chỉ vì mình luôn ghi nhớ rằng tri thức là con đường vững vàng nhất đưa mình đến những nơi hiện hữu trong thế giới này. 
+                    <br /> Mình học tập mỗi ngày, không phải vì mình muốn trở thành một người tài giỏi, xuất chúng, mà chỉ vì mình luôn ghi nhớ rằng tri thức là con đường vững vàng nhất đưa mình đến những nơi mà mình mơ ước - trong thế giới này. 
                     Mình chỉ mong ngày hôm nay của mình lại tốt hơn ngày hôm qua một chút. Sông có khúc, người có lúc mà. 
                     <br />
                     <br /> Mình thích chia sẻ, nhất là chia sẻ cùng chính bản thân mình. Mình thích viết về một cái mới mà mình đang học hỏi; hay một điều
