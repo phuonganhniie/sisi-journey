@@ -18,7 +18,8 @@ const AboutContent = () => {
                     or expressing my thoughts and opinions on any issue that I care about; 
                     or in other words, my blog is not only about programming, technology but also about life, worldview, and experiences.
                     <br />
-                    <br /> I learn every day, not because I want to become someone brilliant or outstanding, just simply that I always remember that knowledge is the most steadfast path to the places that I dreamt of - that this world has. 
+                    <br /> I learn every day, not because I want to become someone brilliant or outstanding, but because I always remember that knowledge is the most steadfast path to everything that has, is, and will exist in this universe 
+                    (oh, and also to make a bit of money, haha).
                     I just hope that I'm a little better today than I was yesterday.
                     Life has its ups and downs, and so do people - "Every day is not Sunday".
                     <br />
@@ -44,7 +45,8 @@ const AboutContent = () => {
                     <br />
                     <br /> Mình thích công nghệ, mình thích code, mình thích du lịch, mình thích đọc sách dù đôi khi mình cũng lười lắm, mình yêu âm nhạc và mình luôn rất tò mò về thế giới này.
                     <br />
-                    <br /> Mình học tập mỗi ngày, không phải vì mình muốn trở thành một người tài giỏi, xuất chúng, mà chỉ vì mình luôn ghi nhớ rằng tri thức là con đường vững vàng nhất đưa mình đến những nơi mà mình mơ ước - trong thế giới này. 
+                    <br /> Mình học tập mỗi ngày, không phải vì mình muốn trở thành một người tài giỏi, xuất chúng, mà chỉ vì mình luôn ghi nhớ rằng tri thức là con đường vững vàng nhất đưa mình đến những điều đã, đang và sẽ hiện hữu nơi vũ trụ này 
+                    (à, còn cả để kiếm chút xiền nữa haha). 
                     Mình chỉ mong ngày hôm nay của mình lại tốt hơn ngày hôm qua một chút. Sông có khúc, người có lúc mà. 
                     <br />
                     <br /> Mình thích chia sẻ, nhất là chia sẻ cùng chính bản thân mình. Mình thích viết về một cái mới mà mình đang học hỏi; hay một điều
