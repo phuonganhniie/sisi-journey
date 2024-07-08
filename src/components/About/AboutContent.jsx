@@ -16,10 +16,10 @@ const AboutContent = () => {
                     <br /> I enjoy sharing, especially with myself. 
                     I like writing about something new that I'm learning; or something during my work process, my experiences; 
                     or expressing my thoughts and opinions on any issue that I care about; 
-                    or in other words, my blog is not only about programming, technology but also about life, worldview, and experiences.
+                    or in other words, my world is not only about programming, technology but also about life, worldview, emotional and experiences.
                     <br />
                     <br /> I learn every day, not because I want to become someone brilliant or outstanding, but because I always remember that knowledge is the most steadfast path to everything that has, is, and will exist in this universe 
-                    (oh, and also to make a bit of money, haha).
+                    (oh, and also to make a bit of money 😚).
                     I just hope that I'm a little better today than I was yesterday.
                     Life has its ups and downs, and so do people - "Every day is not Sunday".
                     <br />
@@ -45,13 +45,13 @@ const AboutContent = () => {
                     <br />
                     <br /> Mình thích công nghệ, mình thích code, mình thích du lịch, mình thích đọc sách dù đôi khi mình cũng lười lắm, mình yêu âm nhạc và mình luôn rất tò mò về thế giới này.
                     <br />
-                    <br /> Mình học tập mỗi ngày, không phải vì mình muốn trở thành một người tài giỏi, xuất chúng, mà chỉ vì mình luôn ghi nhớ rằng tri thức là con đường vững vàng nhất đưa mình đến những điều đã, đang và sẽ hiện hữu nơi vũ trụ này 
-                    (à, còn cả để kiếm chút xiền nữa haha). 
-                    Mình chỉ mong ngày hôm nay của mình lại tốt hơn ngày hôm qua một chút. Sông có khúc, người có lúc mà. 
+                    <br /> Mình học tập mỗi ngày, không phải vì mình muốn trở thành một người tài giỏi, xuất chúng, mà chỉ vì mình luôn ghi nhớ rằng tri thức là con đường vững vàng nhất đưa mình đến những điều đã, đang và sẽ hiện hữu (ít nhất là) ở vũ trụ này 
+                    (à, còn cả để kiếm chút xiền nữa 😘). 
+                    Mình chỉ mong ngày hôm nay của mình lại tốt hơn ngày hôm qua một chút.
                     <br />
-                    <br /> Mình thích chia sẻ, nhất là chia sẻ cùng chính bản thân mình. Mình thích viết về một cái mới mà mình đang học hỏi; hay một điều
+                    <br /> Mình thích chia sẻ, nhất là chia sẻ cùng bản thân mình. Mình thích viết về một cái mới mà mình đang học hỏi; hay một điều
                     nào đó trong quá trình mình đi làm, mình trải nghiệm; hay nói lên suy nghĩ, quan điểm của mình về một vấn đề bất kì mà mình quan tâm; hay nói cách khác
-                    blog của mình không chỉ về lập trình, công nghệ mà còn về cuộc sống, thế giới quan và sự trải nghiệm. 
+                    thế giới của mình không chỉ về lập trình, công nghệ mà còn về cuộc sống, quan điểm, cảm xúc và trải nghiệm. 
                     <br />
                     <br /> Mình rất thích hành trình mà mình đang đi, và mình luôn biết ơn những bậc tiền bối, những anh chị, bạn bè, đồng nghiệp, các em mà mình 
                     may mắn được gặp gỡ, được giúp đỡ, được học hỏi, được phát triển từ tư duy và sự tử tế của họ. 
